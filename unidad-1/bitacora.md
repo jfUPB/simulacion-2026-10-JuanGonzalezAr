@@ -52,10 +52,41 @@ class Walker {
 ```
 #### Que Ocurrio?
 - La caminata se direcciono mas hacia la derecha 
+### Actividad 03 🪚
+- 
+
+
+
+
+
+
+### Actividad 04 🧑‍⚖️
+```
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+
+function setup() {
+  createCanvas(640, 240);
+  background(200);
+}
+
+function draw() {
+  //{!1} A normal distribution with mean 320 and standard deviation 60
+  
+  let x = 20 * randomGaussian(5) + 320/2;
+  let y = 30 * randomGaussian() + 240/3;
+  noStroke();
+  fill(0, 10);
+  circle(x, y , 16);
+}
+
+```
 
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
 
