@@ -53,15 +53,55 @@ class Walker {
 #### Que Ocurrio?
 - La caminata se direcciono mas hacia la derecha 
 ### Actividad 03 🪚
-- 
+- Una distribucion uniforme es una distribucion en donde todas las probabilidades tienen el mismo porcentaje de salir, como en el ejemplo de la caminata donde tenemos 4 posibilidades cada una del 25% de salir, y una no uniforme es donde esas posibilidades tienen algunas mas % que otras  
+```js
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
 
+let walker;
 
+function setup() {
+  createCanvas(640, 240);
+  walker = new Walker();
+  background(255);
+}
 
+function draw() {
+  walker.step();
+  walker.show();
+}
 
+class Walker {
+  constructor() {
+    this.x = width / 2;
+    this.y = height / 2;
+  }
 
+  show() {
+    stroke(0);
+    point(this.x, this.y);
+  }
+
+  step() {
+    const choice = floor(random(10));
+    if (choice == 5) {
+      this.x++;
+    } else if (choice == 6) {
+      this.x--;
+    } else if (choice ==7) {
+      this.y++;
+    } else {
+      this.y--;
+    }
+  }
+}
+
+```
+- Que hice en mi codigo? Simplemente en vez de limitarlo a 4 posibilidades lo extendi a 10 donde cada numero tiene 10% de probabilidad de salir, entonces con mi codigo para que se pudiera inclinar mas hacia la derecha le asigne 5 numeros, osea, 50% de probabilidad y al resto (numero 7 y 8) les doy 10%, y los otros dos numeros que sobran que serian el else tienen un 20% de posibilidad de salir
 
 ### Actividad 04 🧑‍⚖️
-```
+```js
 function setup() {
   createCanvas(640, 240);
   background(200);
@@ -83,6 +123,7 @@ function draw() {
 
 
 ## Bitácora de reflexión
+
 
 
 
