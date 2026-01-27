@@ -171,13 +171,50 @@ class Walker {
 }
 }
 ```
-<img width="786" height="298" alt="image" src="https://github.com/user-attachments/assets/9233a121-059c-4a24-b6d9-2aa5028e40d2" />
+- <img width="786" height="298" alt="image" src="https://github.com/user-attachments/assets/9233a121-059c-4a24-b6d9-2aa5028e40d2" />
+### Actividad 06 🅰️
+- En este cálculo se usa Perlin Noise para determinar el tamaño y la dirección de cada paso del walker. En lugar de generar desplazamientos totalmente aleatorios, se obtiene un valor de ruido que varía de forma continua en el tiempo. Ese valor se transforma con map() a un rango negativo y positivo, permitiendo que el movimiento pueda ir en cualquier dirección, pero siempre de manera suave y coherente con el paso anterior.
+- Esperaba un movimiento donde se fuera dibujando una "linea" o dejando un rastro donde visualmente se ve algo muy organico y no solo un movimiento alatorio
+- [Link al skecth](https://editor.p5js.org/JuanGonzalezAr/sketches/KlU3g8YYQ)
+```js
+let x, y;
+let tx = 0;
+let ty = 150; // distinto para que X y Y no sean iguales
+
+function setup() {
+  createCanvas(640, 240);
+  background(155);
+  x = width / 2;
+  y = height / 2;
+}
+
+function draw() {
+  // Perlin noise devuelve valores suaves entre 0 y 1
+  let xstep = map(noise(tx), 0, 1, -2, 2);
+  let ystep = map(noise(ty), 0, 1, -2, 2);
+
+  x += xstep;
+  y += ystep;
+
+  noStroke();
+  fill(0, 60);
+  circle(x, y, 5);
+
+  // Avanzamos lentamente en el noise
+  tx += 0.01;
+  ty += 0.01;
+
+  // Mantener dentro del canvas
+  x = constrain(x, 0, width);
+  y = constrain(y, 0, height);
+}
+```
+
 
 ## Bitácora de aplicación 
 
-
-
 ## Bitácora de reflexión
+
 
 
 
