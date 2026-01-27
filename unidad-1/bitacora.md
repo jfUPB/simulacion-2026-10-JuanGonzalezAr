@@ -119,12 +119,66 @@ function draw() {
 ```
 - <img width="798" height="293" alt="image" src="https://github.com/user-attachments/assets/11b2f6b1-01a6-46fe-9925-0a4c22bbe713" />
 - [Link a el sketch en la bitacora](https://editor.p5js.org/JuanGonzalezAr/sketches/4mWWMOm8T)
+### Actividad 05🎃
+- Usé la técnica de Lévy Flight porque permite simular un movimiento que no es completamente uniforme ni predecible, combinando exploración local con saltos ocasionales de largo alcance. A diferencia de un random walk tradicional, donde todos los pasos tienen un tamaño similar
+- El resultado esperado era obtener una trayectoria irregular, con zonas densas donde el walker se mueve lentamente y repite pasos pequeños, interrumpidas por saltos grandes que llevan el punto a regiones nuevas del lienzo
+- [Link al sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/XK7F0Re6F)
+```js
+// The Nature of Code (adaptado a Levy Flight)
+
+let walker;
+
+function setup() {
+  createCanvas(640, 240);
+  walker = new Walker();
+  background(155);
+}
+
+function draw() {
+  walker.step();
+  walker.show();
+}
+
+class Walker {
+  constructor() {
+    this.x = width / 2;
+    this.y = height / 2;
+  }
+
+  show() {
+  noStroke();
+  fill(0, 50);
+  circle(this.x, this.y, 5);
+}
+
+
+  step() {
+  let r = random(1);
+
+  if (r < 0.01) {
+    this.xstep = random(-100, 100);
+    this.ystep = random(-100, 100);
+  } else {
+    this.xstep = random(-1, 1);
+    this.ystep = random(-1, 1);
+  }
+
+  this.x += this.xstep;
+  this.y += this.ystep;
+
+  this.x = constrain(this.x, 0, width);
+  this.y = constrain(this.y, 0, height);
+}
+}
+```
+<img width="786" height="298" alt="image" src="https://github.com/user-attachments/assets/9233a121-059c-4a24-b6d9-2aa5028e40d2" />
 
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
 
 
 
