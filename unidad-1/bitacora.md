@@ -111,18 +111,21 @@ function draw() {
   //{!1} A normal distribution with mean 320 and standard deviation 60
   
   let x = randomGaussian(320,15) 
-  let y = randomGaussian(120, 60)
+  let y = randomGaussian(120, 40)
   noStroke();
   fill(0, 10);
   circle(x, y , 16);
 }
 ```
+- <img width="798" height="293" alt="image" src="https://github.com/user-attachments/assets/11b2f6b1-01a6-46fe-9925-0a4c22bbe713" />
+- [Link a el sketch en la bitacora](https://editor.p5js.org/JuanGonzalezAr/sketches/4mWWMOm8T)
 
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
 
 
 
