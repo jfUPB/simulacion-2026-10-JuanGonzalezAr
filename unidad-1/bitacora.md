@@ -276,10 +276,12 @@ function mousePressed() {
 - El concepto de mi sketch está inspirado en la idea de estrellas y constelaciones. A partir de un movimiento continuo se van generando líneas blancas que conectan distintos puntos del lienzo. La mayoría del tiempo el movimiento es suave, pero mediante la técnica de Lévy Flight ocurren saltos grandes ocasionales, los cuales generan puntos más brillantes que representan “estrellas” o destellos. De esta forma, la obra simula la creación de constelaciones de manera generativa y en tiempo real.
 - [Link al sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/KOF1XeXqg)
 - ![WhatsApp Image 2026-01-27 at 3 18 37 PM](https://github.com/user-attachments/assets/3bbbad3e-f757-4d56-9bc5-c9f3c18d5567)
-
+### Actividad 08🎱
+- 
 ## Bitácora de aplicación 
 
 ## Bitácora de reflexión
+
 
 
 
