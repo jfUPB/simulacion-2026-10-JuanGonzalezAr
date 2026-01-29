@@ -209,11 +209,78 @@ function draw() {
   y = constrain(y, 0, height);
 }
 ```
+### Actividad 07🃏
+```js
+let x, y;
+let tx = 0, ty = 1000;
+let lastX, lastY;
 
+function setup() {
+  createCanvas(800, 450);
+  background(0);
+  x = width/2; y = height/2;
+  lastX = x; lastY = y;
+}
+
+function draw() {
+  lastX = x; lastY = y;
+
+  let dx = map(noise(tx), 0, 1, -2, 2);
+  let dy = map(noise(ty), 0, 1, -2, 2);
+
+  let bigJump = false;
+  if (random(1) < 0.001) { 
+    dx = random(-180, 180);
+    dy = random(-180, 180);
+    bigJump = true;
+  }
+
+  x += dx; y += dy;
+
+  // tamaño gaussian
+  let s = constrain(randomGaussian(4, 1.5), 1, 8);
+
+  // línea suave
+  stroke(255, 25);
+  line(lastX, lastY, x, y);
+
+  // “estrella” cuando hay salto grande
+  noStroke();
+  if (bigJump) {
+    fill(255, 180);
+    circle(x, y, 14);
+  } else {
+    fill(255, 70);
+    circle(x, y, s);
+  }
+
+  let speed = map(mouseX, 0, width, 0.002, 0.02);
+  tx += speed;
+  ty += speed;
+
+  // wrap
+  if (x < 0) x = width;
+  if (x > width) x = 0;
+  if (y < 0) y = height;
+  if (y > height) y = 0;
+}
+
+function mousePressed() {
+  // empuja el ruido para “cambiar” el flujo desde el mouse
+  x = mouseX; y = mouseY;
+  tx += 1.5;
+  ty += 1.5;
+}
+
+```
+- El concepto de mi sketch está inspirado en la idea de estrellas y constelaciones. A partir de un movimiento continuo se van generando líneas blancas que conectan distintos puntos del lienzo. La mayoría del tiempo el movimiento es suave, pero mediante la técnica de Lévy Flight ocurren saltos grandes ocasionales, los cuales generan puntos más brillantes que representan “estrellas” o destellos. De esta forma, la obra simula la creación de constelaciones de manera generativa y en tiempo real.
+- [Link al sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/KOF1XeXqg)
+- ![WhatsApp Image 2026-01-27 at 3 18 37 PM](https://github.com/user-attachments/assets/3bbbad3e-f757-4d56-9bc5-c9f3c18d5567)
 
 ## Bitácora de aplicación 
 
 ## Bitácora de reflexión
+
 
 
 
