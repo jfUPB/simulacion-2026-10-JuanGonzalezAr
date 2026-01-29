@@ -209,6 +209,9 @@ function draw() {
   y = constrain(y, 0, height);
 }
 ```
+
+
+## Bitácora de aplicación 
 ### Actividad 07🃏
 ```js
 let x, y;
@@ -276,12 +279,26 @@ function mousePressed() {
 - El concepto de mi sketch está inspirado en la idea de estrellas y constelaciones. A partir de un movimiento continuo se van generando líneas blancas que conectan distintos puntos del lienzo. La mayoría del tiempo el movimiento es suave, pero mediante la técnica de Lévy Flight ocurren saltos grandes ocasionales, los cuales generan puntos más brillantes que representan “estrellas” o destellos. De esta forma, la obra simula la creación de constelaciones de manera generativa y en tiempo real.
 - [Link al sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/KOF1XeXqg)
 - ![WhatsApp Image 2026-01-27 at 3 18 37 PM](https://github.com/user-attachments/assets/3bbbad3e-f757-4d56-9bc5-c9f3c18d5567)
-### Actividad 08🎱
-- 
-## Bitácora de aplicación 
-
 ## Bitácora de reflexión
 
+### Actividad 08🎱
+- **Diferencia entre random() y Ruido Perlin (noise()) y cuándo usar cada uno:**
+- La aleatoriedad generada por random() produce valores totalmente independientes entre sí, lo que significa que cada resultado no tiene relación con el anterior
+- En cambio, el Ruido Perlin (noise()) genera valores que cambian de manera suave y continua en el tiempo. Aunque sigue siendo aleatorio, existe una relación entre un valor y el siguiente
+- El random lo usaria cuando quiero hacer cosas que den mas sorpresa o que no sean tan predecibles y el rudo lo usaria para movimiento mas organico dentro de un sketch y dar la sensacion de algo mas natural
+- **Qué es una distribución de probabilidad y diferencia visual entre uniforme y normal:**
+- Una distribución de probabilidad describe cómo se reparten las posibilidades de que ocurran ciertos valores dentro de un conjunto de datos.
+- En una caminata aleatoria con distribución uniforme, todos los valores tienen la misma probabilidad de ocurrir. Visualmente, esto produce movimientos más dispersos y sin concentración clara, ya que cualquier paso es igual de probable.
+- En una caminata con distribución normal, la mayoría de los valores se concentran alrededor de un valor central, y los valores extremos ocurren con menor frecuencia. Visualmente, esto genera patrones más naturales
+- **Papel de la aleatoriedad en el arte generativo:**
+- La aleatoriedad cumple un papel fundamental en el arte generativo porque introduce variación y evita resultados completamente predecibles. Por ejemplo:
+  - Generar diversidad visual, haciendo que cada ejecución de la obra sea única
+  - Simular comportamientos naturales, ya que muchos fenómenos del mundo real no son totalmente deterministas, sino probabilísticos.
+- **Describe uno de los conceptos de aleatoriedad que usaste y explica por qué fue una elección adecuada para lograr el efecto que buscabas:**
+- En mi obra utilicé la técnica de Lévy Flight, donde la mayoría de los movimientos son pequeños, pero ocasionalmente ocurren saltos grandes. Esta elección fue adecuada porque permitió simular la aparición de “estrellas” o destellos importantes dentro de la composición
+- **¿Qué es un “paseo” o “caminata” (walk) en el contexto de la simulación? ¿Qué característica particular tiene una caminata de tipo “Lévy flight”?:**
+- Una caminata o “walk” en el contexto de la simulación es un proceso en el que un punto se mueve paso a paso, donde cada nueva posición depende de la anterior
+- La característica principal de una caminata tipo Lévy Flight es que combina muchos pasos pequeños con saltos grandes poco frecuentes. Esta mezcla permite explorar tanto zonas cercanas como regiones lejanas del espacio
 
 
 
