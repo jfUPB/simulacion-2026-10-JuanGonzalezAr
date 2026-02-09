@@ -8,7 +8,7 @@
 - No funciona porque position y velocity son vectores (objetos), y en JavaScript no se pueden sumar con el operador +; por eso es necesario usar el método .add() de p5.Vector
 ### Actividad 03🧑‍🚀
 - Modifiqué el walker para que su posición se represente mediante un vector en lugar de usar variables separadas para x e y. Esto permite manejar la posición como una sola entidad y prepara el código para trabajar con operaciones vectoriales más complejas. El comportamiento del movimiento sigue siendo un random walk, pero ahora está organizado bajo el modelo de vectores de p5.js.
-```
+```js
 // The Nature of Code
 // Daniel Shiffman
 // http://natureofcode.com
@@ -60,3 +60,4 @@ class Walker {
 
 
 ## Bitácora de reflexión
+
