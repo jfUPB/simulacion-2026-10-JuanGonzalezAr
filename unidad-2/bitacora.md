@@ -55,9 +55,22 @@ class Walker {
   }
 }
 ```
+### Actividad 04🥇
+- **¿Qué resultado esperas obtener en el programa anterior?** : Por lo que veo del codigo lo que hace es iniciar un vector posicion (x,y) y hace un paso para que esos vectores se conviertan a los valores que le mandamos
+- **¿Qué resultado obtuviste?** : Se hizo el paso y el vector posicion que declaramos cambió, ahora la posicion esta en (20,30)
+- **¿Qué tipo de paso se está realizando en el código?** : Paso por referencia, no es pasando una copia de ese objeto, sino una referencia al mismo objeto.
+- **¿Qué aprendiste?** : Como cambiar la posicion de un vector y como funciona el paso por referencia 
+
+### Actividad 05⏰
+- **¿Para qué sirve el método mag()? Nota que hay otro método llamado magSq(). ¿Cuál es la diferencia entre ambos? ¿Cuál es más eficiente?**: mag() sirve para medir la magnitud de un vector osea entender la distancia desde el origen o la intensidad de un desplazamiento. y magSq() calucla esa magnitud de un vector al cuadrado, una calcula solo la magnitud, magSq() cuando solo necesites comparar magnitudes o cuando la raíz cuadrada no es importante. Es más rápido y eficiente en estos casos y mag() solo para calcular la magnitud y realmente la necesites
+- **¿Para qué sirve el método normalize()?**: El método normalize() sirve para ajustar la magnitud de un vector a 1 sin cambiar su dirección.
+- **Te encuentras con un periodista en la calle y te pregunta ¿Para qué sirve el método dot()? ¿Qué le responderías en un frase?**: Es el producto punto de dos vectores, si quieres saber si dos vectores apuntan en la misma dirección, dirección opuesta, o son perpendiculares, el producto punto te lo dice.
+- **El método dot() tiene una versión estática y una de instancia. ¿Cuál es la diferencia entre ambas?**: Instancia:vectorA.dot(vectorB) Usas esta versión cuando ya tienes un vector creado y quieres calcular el producto punto con otro vector.Estática:p5.Vector.dot(vectorA, vectorB)Usas esta versión cuando no tienes un objeto específico y prefieres llamar al método directamente desde la clase p5.Vector.
+
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
 
