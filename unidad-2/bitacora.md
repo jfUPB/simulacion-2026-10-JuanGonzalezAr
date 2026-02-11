@@ -66,11 +66,91 @@ class Walker {
 - **¿Para qué sirve el método normalize()?**: El método normalize() sirve para ajustar la magnitud de un vector a 1 sin cambiar su dirección.
 - **Te encuentras con un periodista en la calle y te pregunta ¿Para qué sirve el método dot()? ¿Qué le responderías en un frase?**: Es el producto punto de dos vectores, si quieres saber si dos vectores apuntan en la misma dirección, dirección opuesta, o son perpendiculares, el producto punto te lo dice.
 - **El método dot() tiene una versión estática y una de instancia. ¿Cuál es la diferencia entre ambas?**: Instancia:vectorA.dot(vectorB) Usas esta versión cuando ya tienes un vector creado y quieres calcular el producto punto con otro vector.Estática:p5.Vector.dot(vectorA, vectorB)Usas esta versión cuando no tienes un objeto específico y prefieres llamar al método directamente desde la clase p5.Vector.
+- **Ahora el mismo periodista curioso de antes te pregunta si le puedes dar una intuición geométrica acerca del producto cruz. Entonces te pregunta ¿Cuál es la interpretación geométrica del producto cruz de dos vectores? Tu respuesta debe incluir qué pasa con la orientación y la magnitud del vector resultante**: El producto cruz de dos vectores genera un vector perpendicular al plano que forman. Su magnitud representa el área del paralelogramo definido por ambos vectores y depende del seno del ángulo entre ellos. La orientación del vector resultante depende del orden de los vectores y se determina con la regla de la mano derecha; si se invierte el orden, cambia el sentido del resultado.
+- **¿Para que te puede servir el método dist()** : Para calcular la distancia entre 2 puntos representado por vectores
+- **¿Para qué sirven los métodos normalize() y limit()?** : normalize() convierte un vector en un vector unitario y limit() limita la longitud maxima de un vector
 
+### Actividad 06📊
+- Codigo
+```js
+function setup() {
+  createCanvas(200, 200);
+}
+
+function draw() {
+  background(200);
+
+  // Base (origen común)
+  let v0 = createVector(100, 100);
+
+  // Vectores desde la base
+  let vRed = createVector(80, 0);  // rojo (eje X)
+  let vBlue = createVector(0, 80); // azul (eje Y)
+
+  // t animado 0→1→0
+  let t = (sin(frameCount * 0.03) + 1) / 2;
+
+  // Vector interpolado (se mueve entre rojo y azul)
+  let vPurple = p5.Vector.lerp(vRed, vBlue, t);
+
+  // 1) Flechas desde la base
+  drawArrow(v0, vRed, color("red"));
+  drawArrow(v0, vBlue, color("blue"));
+
+  // 2) Flecha morada animada desde la base
+  drawArrow(v0, vPurple, color(150, 0, 200)); // morado fijo
+
+  // 3) Flecha que cierra el triángulo: de punta azul → punta roja
+  // Punta roja = v0 + vRed, punta azul = v0 + vBlue
+  let tipRed = p5.Vector.add(v0, vRed);
+  let tipBlue = p5.Vector.add(v0, vBlue);
+
+  // Vector “lado” = (punta roja - punta azul)
+  let sideVec = p5.Vector.sub(tipRed, tipBlue);
+
+  // Dibuja flecha desde la punta azul hacia la punta roja
+  drawArrow(tipBlue, sideVec, color(0, 140, 0));
+}
+
+function drawArrow(base, vec, myColor) {
+  push();
+  stroke(myColor);
+  strokeWeight(3);
+  fill(myColor);
+
+  translate(base.x, base.y);
+
+  // cuerpo
+  line(0, 0, vec.x, vec.y);
+
+  // punta
+  rotate(vec.heading());
+  let arrowSize = 10;
+  translate(vec.mag() - arrowSize, 0);
+  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);
+
+  pop();
+}
+```
+- lerp() significa Linear Interpolation (interpolación lineal), sirve para encontrar un valor entre dos valores según un parámetro t.
+- lerpColor() hace lo mismo, pero con colores.
+- Un color tiene componentes: R (rojo), G (verde), B (azul), lerpColor() interpola cada canal por separado
+- Una flecha se dibuja así:
+  - Mueves el sistema al punto base.
+  - Dibujas una línea usando el vector.
+  - Rotas el sistema según el ángulo del vector.
+  - Dibujas un triángulo al final para la punta.
+
+ ### Actividad 07📚
+ - **Cuál es el concepto del marco motion 101 y cómo se interpreta geométricamente**: Motion 101 es el modelo básico de movimiento en simulación donde la posición se actualiza sumando la velocidad, y la velocidad se actualiza sumando la aceleración. Geométricamente se interpreta como una suma de vectores: la posición es trasladada por la velocidad en cada paso, generando trayectorias lineales o curvas dependiendo de cómo cambie la velocidad
+ - **¿Cómo se aplica motion 101 en el ejemplo?**: En el ejemlo se hace una clase mover que contiene todo lo del motion 101 para usarlo como variables globales en el sketch 
+
+ ### Actividad 08😲:
+ - 
 ## Bitácora de aplicación 
 
 
-
 ## Bitácora de reflexión
+
 
 
