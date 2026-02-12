@@ -218,5 +218,121 @@ class Mover {
 ## Bitácora de reflexión
 
 
+### Actividad 10🏮
+- El sketch presenta un campo magnético interactivo donde partículas responden al movimiento del mouse. Al hacer clic, se genera un "Big Bang" en el que múltiples partículas se desplazan desde un punto de origen (el clic) con velocidades y direcciones aleatorias. A lo largo del tiempo, las partículas interactúan entre sí a través de fuerzas de repulsión locales, evitando que se amontonen y creando un patrón de movimiento disperso.
+``` js
+let particles = [];
+let mode = "attract"; // "attract" o "repel"
+
+function setup() {
+  createCanvas(800, 450);
+  background(0);
+  bigBang(width / 2, height / 2, 120);
+}
+
+function draw() {
+  background(0, 18); // rastro
+
+  for (let i = 0; i < particles.length; i++) {
+    let p = particles[i];
+
+
+    for (let j = 0; j < particles.length; j++) {
+      if (i === j) continue;
+      let other = particles[j];
+
+      let dir = p5.Vector.sub(p.position, other.position);
+      let d = dir.mag();
+
+      if (d > 0 && d < 35) {
+        dir.normalize();
+
+        let strength = map(d, 0, 35, 0.35, 0.0);
+        dir.mult(strength);
+
+        p.applyForce(dir); 
+      }
+    }
+
+    let mouse = createVector(mouseX, mouseY);
+    let mdir = p5.Vector.sub(mouse, p.position);
+    let md = mdir.mag();
+
+    if (md > 0.001) {
+      mdir.normalize();
+      let mStrength = map(md, 0, width, 0.45, 0.02); 
+      mdir.mult(mStrength);
+
+      if (mode === "repel") mdir.mult(-1);
+
+      p.applyForce(mdir);
+    }
+
+    // Motion 101
+    p.update();
+    p.wrap();
+    p.show();
+  }
+}
+
+function bigBang(x, y, amount) {
+  for (let i = 0; i < amount; i++) {
+    particles.push(new Particle(x, y));
+  }
+}
+
+function mousePressed() {
+  bigBang(mouseX, mouseY, 80);
+}
+
+function keyPressed() {
+  if (key === 'a' || key === 'A') mode = "attract";
+  if (key === 'r' || key === 'R') mode = "repel";
+  if (key === 'c' || key === 'C') background(0);
+}
+
+class Particle {
+  constructor(x, y) {
+    this.position = createVector(x, y);
+
+    let angle = random(TWO_PI);
+    let speed = random(1, 6);
+    this.velocity = p5.Vector.fromAngle(angle).mult(speed);
+
+    this.acceleration = createVector(0, 0);
+    this.maxSpeed = 7;
+
+    this.size = random(2, 5);
+  }
+
+  applyForce(f) {
+    this.acceleration.add(f);
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.velocity.limit(this.maxSpeed);
+    this.position.add(this.velocity);
+    this.acceleration.mult(0);
+  }
+
+  wrap() {
+    if (this.position.x > width) this.position.x = 0;
+    else if (this.position.x < 0) this.position.x = width;
+
+    if (this.position.y > height) this.position.y = 0;
+    else if (this.position.y < 0) this.position.y = height;
+  }
+
+  show() {
+    noStroke();
+    fill(255, 160);
+    circle(this.position.x, this.position.y, this.size);
+  }
+}
+
+```
+- [Enlace al sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/yUuq44Yxg)
+- <img width="962" height="570" alt="image" src="https://github.com/user-attachments/assets/9beb6a07-fa96-4cb4-8c04-79385b780102" />
 
 
