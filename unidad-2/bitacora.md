@@ -143,14 +143,80 @@ function drawArrow(base, vec, myColor) {
 
  ### Actividad 07📚
  - **Cuál es el concepto del marco motion 101 y cómo se interpreta geométricamente**: Motion 101 es el modelo básico de movimiento en simulación donde la posición se actualiza sumando la velocidad, y la velocidad se actualiza sumando la aceleración. Geométricamente se interpreta como una suma de vectores: la posición es trasladada por la velocidad en cada paso, generando trayectorias lineales o curvas dependiendo de cómo cambie la velocidad
- - **¿Cómo se aplica motion 101 en el ejemplo?**: En el ejemlo se hace una clase mover que contiene todo lo del motion 101 para usarlo como variables globales en el sketch 
+ - **¿Cómo se aplica motion 101 en el ejemplo?**: En el ejemlo se hace una clase mover que contiene todo lo del motion 101 para usarlo como variables globales en el sketch
+### Actividad 08🚛:
 
- ### Actividad 08😲:
- - 
 ## Bitácora de aplicación 
+ ### Actividad 09😲:
+ - La obra representa un sistema de campo magnético interactivo donde una partícula responde a fuerzas de atracción o repulsión generadas por el mouse. La aceleración se calcula como un vector hacia el cursor cuya intensidad varía según su posición, generando trayectorias curvas y dinámicas. Fue una exploración artística de cómo reglas físicas simples pueden producir comportamientos visuales complejos y orgánicos.
+```js 
+let mover;
+
+function setup() {
+  createCanvas(600, 400);
+  mover = new Mover();
+  background(0);
+}
+
+function draw() {
+  background(0, 20); // rastro
+  mover.update();
+  mover.wrap();
+  mover.show();
+}
+
+class Mover {
+  constructor() {
+    this.position = createVector(width / 2, height / 2);
+    this.velocity = createVector(0, 0);
+    this.acceleration = createVector(0, 0);
+  }
+
+  update() {
+    let mouse = createVector(mouseX, mouseY);
+    let force = p5.Vector.sub(mouse, this.position);
+
+    if (force.mag() < 0.0001) force = createVector(0.0001, 0);
+
+    force.normalize();
+
+    let strength = map(mouseY, 0, height, 0.5, 0.05);
+    force.mult(strength);
+
+    if (mouseX < width / 2) force.mult(-1);
+
+    this.acceleration = force;
+
+    // Motion 101
+    this.velocity.add(this.acceleration);
+    this.velocity.limit(6);
+    this.position.add(this.velocity);
+  }
+
+  wrap() {
+    if (this.position.x > width) this.position.x = 0;
+    else if (this.position.x < 0) this.position.x = width;
+
+    // wrap vertical
+    if (this.position.y > height) this.position.y = 0;
+    else if (this.position.y < 0) this.position.y = height;
+  }
+
+  show() {
+    noStroke();
+    fill(255, 220);
+    circle(this.position.x, this.position.y, 20);
+  }
+}
+```
+- [Sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/vguARv27j)
+- <img width="741" height="488" alt="image" src="https://github.com/user-attachments/assets/3ea8b39c-d0dc-4d6e-9869-b4176004f8d9" />
+
+
 
 
 ## Bitácora de reflexión
+
 
 
 
