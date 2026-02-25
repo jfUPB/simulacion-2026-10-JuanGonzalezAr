@@ -253,8 +253,101 @@ class Mover {
 }
 ```
 ## Bitácora de aplicación 
+### Actividad 04⚗️
+- **La historia de esta pieza interactiva se titula "La Resiliencia del Enjambre"**. Trata sobre la fragilidad de la conexión (ya sea entre personas, recuerdos o ideas) y cómo los elementos externos pueden perturbarla, pero siempre existe una tendencia natural a volver a unirse.
+- En la pantalla, veremos un ecosistema de entidades luminosas. El sistema de reglas y fuerzas que narra esta historia es el siguiente:
+- **La Atracción (El vínculo):** Existe un punto central invisible en el lienzo que actúa como un atractor gravitacional. Representa el deseo de pertenencia. Lenta pero inexorablemente, atrae a todas las entidades hacia el centro.
+- **El Arrastre (El peso del tiempo/entorno):** Las entidades no se mueven en el vacío. Existe una fuerza de resistencia fluida (drag) en todo el lienzo que frena su aceleración, haciendo que su viaje hacia el centro sea orgánico, pausado y requiera esfuerzo continuo.
+- **La Disrupción (Interacción del usuario):** El usuario encarna el caos o la adversidad. Al hacer clic y arrastrar el mouse, el usuario genera un "viento huracanado" repulsivo desde la posición del cursor. Esta fuerza interactiva es mucho más fuerte que la atracción central y dispersa violentamente a las entidades, rompiendo el grupo.
+```sketch.js
+ let movers = [];
+let centerPoint;
 
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  for (let i = 0; i < 100; i++) {
+    let x = random(width);
+    let y = random(height);
+    let m = random(0.5, 3);
+    movers[i] = new Mover(x, y, m);
+  }
+  centerPoint = createVector(width / 2, height / 2);
+  background(10, 15, 30);
+}
 
+function draw() {
+  background(10, 15, 30, 40);
 
+  for (let mover of movers) {
+    let gravity = p5.Vector.sub(centerPoint, mover.position);
+    let distance = gravity.mag();
+    distance = constrain(distance, 10, 200); // Evitar fuerzas infinitas
+    gravity.normalize();
+    let G = 2; 
+    let strength = (G * mover.mass) / (distance * distance);
+    gravity.mult(strength);
+    mover.applyForce(gravity);
+
+    let drag = mover.velocity.copy();
+    drag.normalize();
+    drag.mult(-1);
+    let c = 0.02; 
+    let speedSq = mover.velocity.magSq();
+    drag.mult(c * speedSq);
+    mover.applyForce(drag);
+
+    if (mouseIsPressed) {
+      let mousePos = createVector(mouseX, mouseY);
+      let repulsion = p5.Vector.sub(mover.position, mousePos);
+      let d = repulsion.mag();
+      
+      if (d < 150) { 
+        repulsion.normalize();
+        let repulseStrength = map(d, 0, 150, 10, 0); 
+        repulsion.mult(repulseStrength);
+        mover.applyForce(repulsion);
+      }
+    }
+
+    mover.update();
+    mover.show();
+  }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  centerPoint = createVector(width / 2, height / 2);
+}
+```
+- mover
+```js
+class Mover {
+  constructor(x, y, m) {
+    this.mass = m;
+    this.position = createVector(x, y);
+    this.velocity = createVector(0, 0);
+    this.acceleration = createVector(0, 0);
+  }
+
+  applyForce(force) {
+    
+    let f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.acceleration.mult(0);
+  }
+
+  show() {
+    noStroke();
+    fill(255, 200, 100, 150); 
+    circle(this.position.x, this.position.y, this.mass * 4);
+  }
+}
+```
 ## Bitácora de reflexión
+
 
