@@ -8,8 +8,253 @@
 - **El peligro del paso por referencia:** Los vectores en JavaScript (p5.Vector) comparten la misma memoria. Usar force.div(m) altera y arruina la fuerza original para el resto de los objetos.
 - **La solución estática:** Utilizar let f = p5.Vector.div(force, m) genera un vector nuevo. La fuerza original queda intacta.
 - **Aplicación práctica:** Esta regla garantiza que las fuerzas interactivas generadas por la detección de movimiento se apliquen de forma consistente a todas las partículas o efectos visuales, sin que el vector se debilite en el proceso.
+
+### Actividad 03🥖
+- Codigo para la friccion
+```js
+let mover;
+
+function setup() {
+  createCanvas(400, 400);
+  mover = new Mover(width / 2, height / 2, 2); // x, y, masa
+}
+
+function draw() {
+  background(240);
+
+  // 1. Calculamos la fricción
+  let friction = mover.velocity.copy();
+  friction.normalize();
+  friction.mult(-1); // Dirección opuesta
+  let mu = 0.05; // Coeficiente de fricción
+  friction.mult(mu); // Magnitud
+  
+  // 2. Aplicamos la fricción
+  mover.applyForce(friction);
+
+  mover.update();
+  mover.checkEdges();
+  mover.show();
+}
+
+// Interacción: Haz clic para aplicar una ráfaga de viento aleatoria
+function mousePressed() {
+  let wind = p5.Vector.random2D();
+  wind.mult(5); // Fuerza del empujón
+  mover.applyForce(wind);
+}
+
+
+```
+- Clase mover
+``` js
+class Mover {
+  constructor(x, y, m) {
+    this.mass = m;
+    this.position = createVector(x, y);
+    this.velocity = createVector(0, 0);
+    this.acceleration = createVector(0, 0);
+  }
+
+  applyForce(force) {
+    // ¡Aplicando lo aprendido! Creamos un nuevo vector dividiendo por la masa
+    let f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.acceleration.mult(0); // Borrón y cuenta nueva en cada frame
+  }
+
+  show() {
+    stroke(0);
+    strokeWeight(2);
+    fill(127);
+    circle(this.position.x, this.position.y, this.mass * 16);
+  }
+
+  checkEdges() {
+    if (this.position.x > width) {
+      this.position.x = width;
+      this.velocity.x *= -1;
+    } else if (this.position.x < 0) {
+      this.position.x = 0;
+      this.velocity.x *= -1;
+    }
+    if (this.position.y > height) {
+      this.position.y = height;
+      this.velocity.y *= -1;
+    } else if (this.position.y < 0) {
+      this.position.y = 0;
+      this.velocity.y *= -1;
+    }
+  }
+}
+```
+- Resistencia al aire y fluidos
+```js
+let movers = [];
+
+function setup() {
+  createCanvas(400, 400);
+  for (let i = 0; i < 5; i++) {
+    movers[i] = new Mover(random(width), 0, random(1, 4));
+  }
+}
+
+function draw() {
+  background(255);
+
+  // Dibujamos el "fluido" en la mitad de abajo
+  noStroke();
+  fill(175, 200, 255, 150);
+  rect(0, height / 2, width, height / 2);
+
+  for (let mover of movers) {
+    // Gravedad (escalada por masa para que caigan igual en el vacío)
+    let gravity = createVector(0, 0.1 * mover.mass);
+    mover.applyForce(gravity);
+
+    // Si el mover está en el fluido, aplicamos el Drag
+    if (mover.position.y > height / 2) {
+      let drag = mover.velocity.copy();
+      drag.normalize();
+      drag.mult(-1); // Dirección opuesta a la velocidad
+      
+      let c = 0.05; // Coeficiente de arrastre
+      let speedSq = mover.velocity.magSq(); // Velocidad al cuadrado
+      drag.mult(c * speedSq); // Magnitud
+      
+      mover.applyForce(drag);
+    }
+
+    mover.update();
+    mover.checkEdges();
+    mover.show();
+  }
+}
+
+class Mover {
+  constructor(x, y, m) {
+    this.mass = m;
+    this.position = createVector(x, y);
+    this.velocity = createVector(0, 0);
+    this.acceleration = createVector(0, 0);
+  }
+
+  applyForce(force) {
+    let f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.acceleration.mult(0);
+  }
+
+  show() {
+    stroke(0);
+    strokeWeight(2);
+    fill(127, 200);
+    circle(this.position.x, this.position.y, this.mass * 16);
+  }
+
+  checkEdges() {
+    if (this.position.y > height) {
+      this.position.y = height;
+      this.velocity.y *= -0.9; // Un poco de pérdida de energía al rebotar
+    }
+  }
+}
+```
+- Atraccion gravitacional
+```js
+let mover;
+let attractor;
+
+function setup() {
+  createCanvas(400, 400);
+  mover = new Mover(300, 200, 2);
+  // Le damos una velocidad inicial para que orbite y no caiga directo en línea recta
+  mover.velocity = createVector(0, 2); 
+  attractor = new Attractor();
+}
+
+function draw() {
+  // Ponemos un fondo con opacidad baja para ver la estela de la órbita
+  background(255, 10); 
+
+  let force = attractor.calculateAttraction(mover);
+  mover.applyForce(force);
+  
+  mover.update();
+  
+  attractor.show();
+  mover.show();
+}
+
+class Attractor {
+  constructor() {
+    this.position = createVector(width / 2, height / 2);
+    this.mass = 20;
+    this.G = 1; // Constante gravitacional
+  }
+
+  calculateAttraction(m) {
+    // Dirección de la fuerza
+    let force = p5.Vector.sub(this.position, m.position);
+    let distance = force.mag();
+    
+    // Restringimos la distancia para evitar comportamientos extremos al acercarse mucho
+    distance = constrain(distance, 5, 25); 
+    
+    force.normalize();
+    
+    // Magnitud de la fuerza (F = G * m1 * m2 / d^2)
+    let strength = (this.G * this.mass * m.mass) / (distance * distance);
+    force.mult(strength);
+    return force;
+  }
+
+  show() {
+    noStroke();
+    fill(255, 100, 100);
+    circle(this.position.x, this.position.y, this.mass * 2);
+  }
+}
+
+class Mover {
+  constructor(x, y, m) {
+    this.mass = m;
+    this.position = createVector(x, y);
+    this.velocity = createVector(0, 0);
+    this.acceleration = createVector(0, 0);
+  }
+
+  applyForce(force) {
+    let f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.acceleration.mult(0);
+  }
+
+  show() {
+    noStroke();
+    fill(50);
+    circle(this.position.x, this.position.y, this.mass * 8);
+  }
+}
+```
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
