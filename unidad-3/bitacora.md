@@ -353,5 +353,118 @@ class Mover {
 
 ## Bitácora de reflexión
 
+### Actividad 05🚑
+- Motion 101 es el algoritmo fundamental propuesto por Daniel Shiffman en The Nature of Code para simular movimiento en una pantalla. Es un sistema paso a paso que traduce las leyes de Newton a código, permitiendo que los objetos no solo se "muevan", sino que tengan peso, inercia y reaccionen a su entorno de forma realista.
+- Es la forma en que traducimos la física continua del mundo real (donde el tiempo fluye sin interrupciones) al mundo digital y discreto de una pantalla de computador
+- a no animamos diciendo "muévete un píxel a la derecha". Ahora decimos "aplica un viento de 0.5 hacia la derecha" y dejamos que el algoritmo se encargue de calcular cómo ese viento empuja la masa del objeto, cómo eso cambia su velocidad actual, y cómo eso, finalmente, actualiza su posición en la pantalla de una manera orgánicamente perfecta.
+- La relación fluye estrictamente en esta dirección: Fuerza $\rightarrow$ Aceleración $\rightarrow$ Velocidad $\rightarrow$ Posición
+- De las obras que mas me llamaron la atencion son las movil, esta obra es un homenaje digital a los "Móviles" de Alexander Calder. La clave no es animarlos para que se muevan, sino simular la física de objetos colgando de un alambre, balanceándose por la gravedad y empujados por ráfagas suaves de viento.
 
+```js
+let movers = [];
+let calderColors = ['#E63946', '#F4A261', '#2A9D8F', '#000000', '#FFFFFF'];
 
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  
+  for (let i = 0; i < 5; i++) {
+    let anchorX = (width / 5) * i + (width / 10);
+    let anchorY = 0;
+    
+    let m = random(2, 6); 
+    let restLength = random(150, 400); 
+    let color = random(calderColors);
+    
+    movers.push(new Mover(anchorX, anchorY, m, restLength, color));
+  }
+}
+
+function draw() {
+  background(245, 245, 240); 
+
+  let windOffsetX = noise(frameCount * 0.01) - 0.5; 
+  let wind = createVector(windOffsetX, 0);
+  wind.mult(2); // Fuerza de la brisa
+
+  let gravity = createVector(0, 0.5);
+
+  for (let mover of movers) {
+    mover.applyForce(wind);
+    
+    let g = p5.Vector.mult(gravity, mover.mass);
+    mover.applyForce(g);
+
+    let anchorPos = createVector(mover.anchorX, mover.anchorY);
+    let spring = p5.Vector.sub(mover.position, anchorPos);
+    
+    let stretch = spring.mag() - mover.restLength; 
+    
+    spring.normalize();
+    let k = 0.05; 
+    spring.mult(-k * stretch); 
+    mover.applyForce(spring);
+
+    let drag = mover.velocity.copy();
+    drag.normalize();
+    drag.mult(-1);
+    let c = 0.03;
+    let speedSq = mover.velocity.magSq();
+    drag.mult(c * speedSq);
+    mover.applyForce(drag);
+
+    // Actualizar física y dibujar
+    mover.update();
+    mover.show();
+  }
+}
+
+class Mover {
+  constructor(aX, aY, m, len, col) {
+    this.anchorX = aX;
+    this.anchorY = aY;
+    this.restLength = len; // Longitud de reposo del alambre
+    
+    this.mass = m;
+    // Empieza en reposo, colgando hacia abajo
+    this.position = createVector(aX, aY + len); 
+    this.velocity = createVector(0, 0);
+    this.acceleration = createVector(0, 0);
+    this.color = col;
+    
+    this.isCircle = random(1) > 0.5;
+  }
+
+  applyForce(force) {
+    let f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.acceleration.mult(0);
+  }
+
+  show() {
+    // Dibujar el alambre
+    stroke(50);
+    strokeWeight(1);
+    line(this.anchorX, this.anchorY, this.position.x, this.position.y);
+
+    // Dibujar la figura
+    noStroke();
+    fill(this.color);
+    let size = this.mass * 15; 
+    if (this.isCircle) {
+      circle(this.position.x, this.position.y, size);
+    } else {
+      rectMode(CENTER);
+      rect(this.position.x, this.position.y, size, size, 5);
+    }
+  }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+```
