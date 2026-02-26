@@ -348,6 +348,10 @@ class Mover {
   }
 }
 ```
+- [Enlace al Sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/8lmMqeB7t)
+- <img width="939" height="851" alt="image" src="https://github.com/user-attachments/assets/4346c917-ad9a-4127-8661-e2dbfcefac90" />
+
 ## Bitácora de reflexión
+
 
 
