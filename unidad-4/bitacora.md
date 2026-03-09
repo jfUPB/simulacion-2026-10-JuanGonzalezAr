@@ -90,9 +90,6 @@ class Vehicle {
       rotate(angle);
     }
 
-    // Dibujamos el triángulo. 
-    // IMPORTANTE: En p5.js, 0 grados apunta hacia la derecha. 
-    // Por eso dibujamos el "frente" del triángulo apuntando hacia el eje X positivo.
     fill(255, 150, 50);
     stroke(255);
     strokeWeight(2);
@@ -113,6 +110,7 @@ class Vehicle {
 
 
 ## Bitácora de reflexión
+
 
 
 
