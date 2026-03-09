@@ -21,10 +21,98 @@
 - Estas dos funciones son los escudos del sistema de coordenadas. push() guarda el estado actual del universo (el origen sin rotar), me permite trasladar el origen a la posición del objeto (translate(this.position.x, this.position.y)) y rotarlo (rotate(angle)), dibujar el rectángulo, y luego pop() restaura el lienzo a la normalidad. Sin esto, las traslaciones y rotaciones se acumularían en cada frame, creando un caos donde el objeto saldría disparado de la pantalla.
 - **Centrando el dibujo con rectMode(CENTER):**
 - Al usar rect(0, 0, 30, 10), normalmente p5.js ancla el rectángulo por su esquina superior izquierda. Cambiar el modo a CENTER asegura que el punto (0, 0) sea el centro geométrico de la figura. Esto es vital para que, al aplicar la rotación, el rectángulo gire sobre su propio eje central y no pivoteando torpemente desde una esquina
+
+### Actividad 03:
+- Aplique unas funciones nueva que pueden ayudar a que sea mejor la logica
+- keyIsDown(): A diferencia de keyPressed() (que detecta un solo toque), keyIsDown() verifica en cada frame si estás manteniendo presionada la tecla. Esto nos permite aplicar una fuerza de aceleración continua, como pisar el pedal de un carro.
+- this.velocity.heading(): Esta es una función mágica de p5.Vector. Calcula automáticamente el ángulo (en radianes) hacia el cual apunta nuestro vector de velocidad.
+- Tambien hay una fuerza de friccion que lo que hace es que mientras la tecla no se esta presionando el sistema va frenando el objeto
+```js
+let vehicle;
+
+function setup() {
+  createCanvas(600, 400);
+  vehicle = new Vehicle(width / 2, height / 2);
+}
+
+function draw() {
+  background(30, 30, 50);
+
+  if (keyIsDown(LEFT_ARROW)) {
+    let forceLeft = createVector(-0.2, 0); 
+    vehicle.applyForce(forceLeft);
+  }
+  if (keyIsDown(RIGHT_ARROW)) {
+    let forceRight = createVector(0.2, 0);
+    vehicle.applyForce(forceRight);
+  }
+
+  let friction = vehicle.velocity.copy();
+  friction.normalize();
+  friction.mult(-0.05); // Coeficiente de fricción suave
+  vehicle.applyForce(friction);
+
+  vehicle.update();
+  vehicle.checkEdges();
+  vehicle.show();
+}
+
+class Vehicle {
+  constructor(x, y) {
+    this.mass = 1;
+    this.position = createVector(x, y);
+    this.velocity = createVector(0, 0);
+    this.acceleration = createVector(0, 0);
+  }
+
+  applyForce(force) {
+    let f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    // Limitamos la velocidad máxima para que no acelere hasta el infinito
+    this.velocity.limit(8); 
+    this.position.add(this.velocity);
+    this.acceleration.mult(0);
+  }
+
+  show() {
+    // Obtenemos el ángulo hacia donde apunta la velocidad
+    let angle = this.velocity.heading();
+
+    push(); // Guardamos el estado del canvas
+    translate(this.position.x, this.position.y); // Movemos el origen al vehículo
+    
+    // Si la velocidad es casi cero, evitamos que el triángulo salte a 0 grados bruscamente
+    if (this.velocity.mag() > 0.1) {
+      rotate(angle);
+    }
+
+    // Dibujamos el triángulo. 
+    // IMPORTANTE: En p5.js, 0 grados apunta hacia la derecha. 
+    // Por eso dibujamos el "frente" del triángulo apuntando hacia el eje X positivo.
+    fill(255, 150, 50);
+    stroke(255);
+    strokeWeight(2);
+    triangle(20, 0, -15, -10, -15, 10); 
+    
+    pop(); // Restauramos el estado del canvas
+  }
+
+  checkEdges() {
+    // Hacemos que si sale por un lado, aparezca por el otro (estilo Pac-Man)
+    if (this.position.x > width + 20) this.position.x = -20;
+    else if (this.position.x < -20) this.position.x = width + 20;
+  }
+}
+```
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
 
 
