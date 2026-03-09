@@ -27,7 +27,7 @@
 - keyIsDown(): A diferencia de keyPressed() (que detecta un solo toque), keyIsDown() verifica en cada frame si estás manteniendo presionada la tecla. Esto nos permite aplicar una fuerza de aceleración continua, como pisar el pedal de un carro.
 - this.velocity.heading(): Esta es una función mágica de p5.Vector. Calcula automáticamente el ángulo (en radianes) hacia el cual apunta nuestro vector de velocidad.
 - Tambien hay una fuerza de friccion que lo que hace es que mientras la tecla no se esta presionando el sistema va frenando el objeto
-```js
+``` js
 let vehicle;
 
 function setup() {
@@ -110,6 +110,7 @@ class Vehicle {
 
 
 ## Bitácora de reflexión
+
 
 
 
