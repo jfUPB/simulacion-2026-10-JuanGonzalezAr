@@ -129,11 +129,21 @@ class Vehicle {
   }
 ```
 - Para darle vida a los atributos this.dragging y this.rollover del Atractor, comprendí que la clave está en unir el cálculo de distancias geométricas con los eventos nativos de p5.js. La lógica es secuencial: primero, uso la función matemática dist() para medir en cada fotograma la distancia entre la punta del cursor y el centro del atractor; si esa distancia es menor a su radio, significa que lo estoy tocando, activando así el estado de rollover para que cambie de color. Luego, aprovecho funciones como mousePressed y mouseReleased para gestionar el agarre. Si hago clic justo cuando el cursor está sobre el círculo, cambio el estado a dragging, lo que obliga a las coordenadas del atractor a igualarse constantemente con mouseX y mouseY mientras mantengo presionado el botón, arrastrándolo por el lienzo. Al soltar el clic, el estado se desactiva y el atractor se ancla en su nuevo lugar
+### Actividad 05:
+- El radio $r$ es la hipotenusa (la línea diagonal más larga).
+- La coordenada $x$ es el cateto adyacente al ángulo.
+- La coordenada $y$ es el cateto opuesto al ángulo.
+- Las cordenadas polares sirven para hacer movimientos mas organicos, ya que nuestros equipos leen en (X,Y) entonces con las coordenadas polares. Es como usar una brújula y un radar. Para llegar al mismo punto, el sistema te dice: "Gira hacia el ángulo $\theta$ (theta) y camina en línea recta una distancia $r$ (radio)". Es el lenguaje natural de los círculos, los péndulos y las órbitas
+- **Depues de la modificacion:**
+- Primero el programa falla porque la función line() intenta usar las variables x y y que ya no existen en el código; y segundo, incluso si lo corrijo usando v.x y v.y, el círculo no traza una órbita, sino que se queda atrapado vibrando en el centro del lienzo.  Esto ocurre por la naturaleza de la función p5.Vector.fromAngle(theta), la cual genera matemáticamente un "vector unitario", es decir, una flecha direccional con una magnitud (longitud) exacta de 1 píxel. Al no aplicarle un radio que estire esa flecha (usando una función como v.mult(r) antes de dibujar), las coordenadas resultantes simplemente oscilan entre -1 y 1, haciendo que el sistema dibuje un círculo perfecto pero de un tamaño microscópico e invisible a simple vista.
+- **Depues de la modificacion:**
+- Al agregar el segundo parámetro a la función, escribiendo let v = p5.Vector.fromAngle(theta, r), el código vuelve a funcionar perfectamente y el círculo retoma su órbita visible. Esto ocurre porque fromAngle() acepta un argumento opcional de magnitud. Mientras que el primer parámetro (theta) establece la dirección, el segundo (r) define la longitud exacta de la flecha desde el momento en que nace. Con esta simple modificación, p5.js se encarga de resolver internamente toda la trigonometría del seno y el coseno, ahorrándome líneas de código y demostrando la elegancia y eficiencia de usar objetos de tipo Vector para las conversiones entre coordenadas polares y cartesianas.
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
 
 
 
