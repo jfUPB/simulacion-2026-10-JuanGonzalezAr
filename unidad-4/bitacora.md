@@ -105,11 +105,36 @@ class Vehicle {
   }
 }
 ```
+### Actividad 04:
+- **La modificación para fuerzas acumulativas:**
+- La modificación obligatoria es this.acceleration.mult(0); (o matemáticamente lo mismo, this.acceleration = createVector(0,0);), colocada siempre al final del método update().
+- Modificacion para el color en el attractor, se hace 
+``` js 
+// Method to display
+  display() {
+    ellipseMode(CENTER);
+    stroke(0); // Borde negro
+    strokeWeight(2); // Un poco más de grosor para que destaque
+    
+    // CAMBIO DE COLORES
+    if (this.dragging) {
+      fill('#FF3366'); 
+    } else if (this.rollover) {
+      fill('#FF9933'); 
+    } else {
+      fill('#33CC99'); 
+    }
+    
+    ellipse(this.position.x, this.position.y, this.mass * 2);
+  }
+```
+- Para darle vida a los atributos this.dragging y this.rollover del Atractor, comprendí que la clave está en unir el cálculo de distancias geométricas con los eventos nativos de p5.js. La lógica es secuencial: primero, uso la función matemática dist() para medir en cada fotograma la distancia entre la punta del cursor y el centro del atractor; si esa distancia es menor a su radio, significa que lo estoy tocando, activando así el estado de rollover para que cambie de color. Luego, aprovecho funciones como mousePressed y mouseReleased para gestionar el agarre. Si hago clic justo cuando el cursor está sobre el círculo, cambio el estado a dragging, lo que obliga a las coordenadas del atractor a igualarse constantemente con mouseX y mouseY mientras mantengo presionado el botón, arrastrándolo por el lienzo. Al soltar el clic, el estado se desactiva y el atractor se ancla en su nuevo lugar
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
 
 
 
