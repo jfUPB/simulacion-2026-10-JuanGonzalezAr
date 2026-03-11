@@ -138,11 +138,83 @@ class Vehicle {
 - Primero el programa falla porque la función line() intenta usar las variables x y y que ya no existen en el código; y segundo, incluso si lo corrijo usando v.x y v.y, el círculo no traza una órbita, sino que se queda atrapado vibrando en el centro del lienzo.  Esto ocurre por la naturaleza de la función p5.Vector.fromAngle(theta), la cual genera matemáticamente un "vector unitario", es decir, una flecha direccional con una magnitud (longitud) exacta de 1 píxel. Al no aplicarle un radio que estire esa flecha (usando una función como v.mult(r) antes de dibujar), las coordenadas resultantes simplemente oscilan entre -1 y 1, haciendo que el sistema dibuje un círculo perfecto pero de un tamaño microscópico e invisible a simple vista.
 - **Depues de la modificacion:**
 - Al agregar el segundo parámetro a la función, escribiendo let v = p5.Vector.fromAngle(theta, r), el código vuelve a funcionar perfectamente y el círculo retoma su órbita visible. Esto ocurre porque fromAngle() acepta un argumento opcional de magnitud. Mientras que el primer parámetro (theta) establece la dirección, el segundo (r) define la longitud exacta de la flecha desde el momento en que nace. Con esta simple modificación, p5.js se encarga de resolver internamente toda la trigonometría del seno y el coseno, ahorrándome líneas de código y demostrando la elegancia y eficiencia de usar objetos de tipo Vector para las conversiones entre coordenadas polares y cartesianas.
+
+### Actividad 06:
+- En el diseño de sistemas generativos, dominar el seno y el coseno significa descubrir la clave para inyectarle vida orgánica a los píxeles. Ya no se trata de programar movimientos mecánicos y rígidos de un punto a otro, sino de usar estas curvas periódicas para crear coreografías digitales que se sienten naturales y fluidas
+```js  
+let ampSlider, periodSlider, speedSlider;
+
+function setup() {
+  createCanvas(600, 400);
+
+  ampSlider = createSlider(10, 150, 100, 1);
+  ampSlider.position(20, 20);
+
+  periodSlider = createSlider(50, 500, 200, 1);
+  periodSlider.position(20, 50);
+
+  speedSlider = createSlider(0, 0.2, 0.05, 0.005);
+  speedSlider.position(20, 80);
+}
+
+function draw() {
+  background(30, 30, 50);
+
+  let amplitude = ampSlider.value();
+  let period = periodSlider.value();
+  let speed = speedSlider.value();
+
+  fill(255);
+  noStroke();
+  textSize(14);
+  textAlign(LEFT, CENTER);
+  text("Amplitud (A): " + amplitude, 160, 25);
+  text("Periodo (T): " + period + " (Frecuencia: " + (1/period).toFixed(3) + ")", 160, 55);
+  text("Velocidad (ωt): " + speed.toFixed(3), 160, 85);
+
+  translate(0, height / 2);
+  stroke(100);
+  strokeWeight(1);
+  line(0, 0, width, 0); 
+
+  noFill();
+  stroke(0, 255, 150); 
+  strokeWeight(3);
+  
+  beginShape();
+  for (let x = 0; x < width; x += 2) {
+    let y = amplitude * sin((TWO_PI * x) / period + (speed * frameCount));
+    vertex(x, y);
+  }
+  endShape();
+  
+  let xFixed = width / 2;
+  let yFixed = amplitude * sin((TWO_PI * xFixed) / period + (speed * frameCount));
+  
+  // Línea de referencia vertical
+  stroke(255, 100);
+  strokeWeight(1);
+  line(xFixed, -amplitude, xFixed, amplitude);
+  
+  fill(127);
+  noStroke();
+  circle(xFixed, yFixed, 40);
+  text("Movimiento\nLocal", xFixed + 25, yFixed);
+}
+```
+
+### Actividad 07:
+- Por un lado, utilicé la función noise() (Ruido Perlin) para generar una fuerza de viento. A diferencia de random(), el ruido Perlin me permite simular una fuerza ambiental orgánica y continua, evitando movimientos erráticos y logrando ráfagas suaves.
+- Por otro lado, implementé el marco Motion 101 (Fuerza $\rightarrow$ Aceleración $\rightarrow$ Velocidad $\rightarrow$ Posición) en la clase Oscillator. El mayor aprendizaje aquí es cómo separar dos sistemas de movimiento en un mismo objeto: el objeto obedece a las fuerzas ambientales para trasladar su "cuerpo" por todo el lienzo (this.position), y al mismo tiempo, sigue calculando su trigonometría interna (this.angle) para hacer oscilar sus apéndices. El uso estratégico de translate(this.position.x, this.position.y) es el puente que conecta la física del mundo con la trigonometría del objeto.
+
+
+
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
 
 
 
