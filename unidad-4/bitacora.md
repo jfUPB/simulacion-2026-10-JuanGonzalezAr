@@ -298,12 +298,44 @@ class Oscillator {
   }
 }
 ```
+### Actividad 08:
+- El bucle for ahora dibuja una "fotografía" instantánea de la ola. En un solo frame, calcula dónde deben ir todos los círculos de izquierda a derecha. Para hacer esto, usa una variable temporal llamada angle, a la cual le suma angleVelocity en cada paso.
+- El motor del tiempo (startAngle): Si empezáramos a dibujar la ola siempre desde el ángulo 0, veríamos la misma fotografía estática 60 veces por segundo. Al hacer startAngle += 0.05 al final del draw(), le estamos diciendo: "En la próxima fotografía, empieza a dibujar la ola un poquito más adelante". Esa pequeña diferencia continua es lo que tu cerebro percibe como un movimiento fluido y ondulante.
+```js
+// Variable que controla el "tiempo" o la fase de la ola entera
+let startAngle = 0; 
+let angleVelocity = 0.2; // Qué tan "apretada" está la ola
+let amplitude = 100;     // Qué tan alta es la ola
 
+function setup() {
+  createCanvas(640, 240);
+}
+
+function draw() {
+  background(255);
+
+  stroke(0);
+  strokeWeight(2);
+  fill(127, 127);
+
+  let angle = startAngle; 
+
+  for (let x = 0; x <= width; x += 24) {
+    let y = amplitude * sin(angle);
+    circle(x, y + height / 2, 48);
+    
+    angle += angleVelocity;
+  }
+  
+  startAngle += 0.05; 
+}
+```
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
 
 
 
