@@ -206,14 +206,105 @@ function draw() {
 ### Actividad 07:
 - Por un lado, utilicé la función noise() (Ruido Perlin) para generar una fuerza de viento. A diferencia de random(), el ruido Perlin me permite simular una fuerza ambiental orgánica y continua, evitando movimientos erráticos y logrando ráfagas suaves.
 - Por otro lado, implementé el marco Motion 101 (Fuerza $\rightarrow$ Aceleración $\rightarrow$ Velocidad $\rightarrow$ Posición) en la clase Oscillator. El mayor aprendizaje aquí es cómo separar dos sistemas de movimiento en un mismo objeto: el objeto obedece a las fuerzas ambientales para trasladar su "cuerpo" por todo el lienzo (this.position), y al mismo tiempo, sigue calculando su trigonometría interna (this.angle) para hacer oscilar sus apéndices. El uso estratégico de translate(this.position.x, this.position.y) es el puente que conecta la física del mundo con la trigonometría del objeto.
+##### Sketch
+```js
+let oscillators = [];
+let tx = 0; 
+
+function setup() {
+  createCanvas(640, 240);
+  // Inicializamos los osciladores en posiciones aleatorias del lienzo
+  for (let i = 0; i < 10; i++) {
+    oscillators.push(new Oscillator(random(width), random(height)));
+  }
+}
+
+function draw() {
+  background(255);
 
 
+  let windX = map(noise(tx), 0, 1, -0.05, 0.05);
+  let wind = createVector(windX, 0);
+  tx += 0.01; 
+
+  let gravity = createVector(0, 0.02);
+
+  for (let i = 0; i < oscillators.length; i++) {
+    oscillators[i].applyForce(wind);
+    
+   
+    let g = p5.Vector.mult(gravity, oscillators[i].mass);
+    oscillators[i].applyForce(g);
+
+    oscillators[i].update();
+    oscillators[i].checkEdges(); // Para que no se pierdan en el vacío
+    oscillators[i].show();
+  }
+}
+```
+##### Oscillator
+```js
+class Oscillator {
+  constructor(x, y) {
+    this.mass = random(1, 4);
+    this.position = createVector(x, y);
+    this.velocity = createVector(0, 0);
+    this.acceleration = createVector(0, 0);
+
+    this.angle = createVector();
+    this.angleVelocity = createVector(random(-0.05, 0.05), random(-0.05, 0.05));
+    this.amplitude = createVector(random(20, 40), random(20, 40)); 
+  }
+
+  applyForce(force) {
+    let f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.velocity.limit(5); 
+    this.position.add(this.velocity);
+    this.acceleration.mult(0); 
+
+    this.angle.add(this.angleVelocity);
+  }
+
+  show() {
+    let oscX = sin(this.angle.x) * this.amplitude.x;
+    let oscY = sin(this.angle.y) * this.amplitude.y;
+
+    push();
+    translate(this.position.x, this.position.y);
+
+    noStroke();
+    fill(100, 150, 255, 150);
+    circle(0, 0, this.mass * 12);
+
+    stroke(0);
+    strokeWeight(2);
+    fill(127);
+    line(0, 0, oscX, oscY);
+    circle(oscX, oscY, 16);
+    pop();
+  }
+
+  checkEdges() {
+    if (this.position.x > width + 50) this.position.x = -50;
+    else if (this.position.x < -50) this.position.x = width + 50;
+    
+    if (this.position.y > height + 50) this.position.y = -50;
+    else if (this.position.y < -50) this.position.y = height + 50;
+  }
+}
+```
 
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
 
 
 
