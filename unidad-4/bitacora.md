@@ -337,10 +337,12 @@ function draw() {
 - [Link al sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/s_Bhre-Mn)
 - Para conectar dos péndulos en serie, me di cuenta de que no necesitaba alterar la física interna de la clase Pendulum. El truco lógico recae en la cinemática del archivo principal: dentro de la función draw(), forcé a que el vector pivot del segundo péndulo se actualizara constantemente para ser exactamente igual a las coordenadas del bob (la bola) del primer péndulo. De esta forma, mientras el péndulo superior calcula su oscilación anclado al techo, el péndulo inferior calcula la suya colgando dinámicamente del primero, creando la ilusión visual de un sistema interconectado fluido.
 ## Bitácora de aplicación 
+### Actividad 11:
 
 
 
 ## Bitácora de reflexión
+
 
 
 
