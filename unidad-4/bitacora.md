@@ -335,11 +335,13 @@ function draw() {
 - El reto de conectar dos resortes en serie fue puramente físico: aplicar la Tercera Ley de Newton (Acción y Reacción).  Modifiqué la clase Spring para que deje de anclarse a un punto fijo y conecte dos objetos dinámicos (a y b). La clave estuvo en el método connect(): calcular la fuerza elástica para tirar del objeto inferior hacia arriba, e invertir esa misma fuerza (mult(-1)) para tirar del superior hacia abajo. Lo mejor de todo es que la clase Bob original no necesitó ningún cambio; al estar diseñada para acumular fuerzas, procesó este nuevo sistema interconectado a la perfección.
 ### Actividad 10:
 - [Link al sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/s_Bhre-Mn)
+- Para conectar dos péndulos en serie, me di cuenta de que no necesitaba alterar la física interna de la clase Pendulum. El truco lógico recae en la cinemática del archivo principal: dentro de la función draw(), forcé a que el vector pivot del segundo péndulo se actualizara constantemente para ser exactamente igual a las coordenadas del bob (la bola) del primer péndulo. De esta forma, mientras el péndulo superior calcula su oscilación anclado al techo, el péndulo inferior calcula la suya colgando dinámicamente del primero, creando la ilusión visual de un sistema interconectado fluido.
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
 
 
 
