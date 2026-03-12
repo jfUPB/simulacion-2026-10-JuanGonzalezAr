@@ -342,7 +342,10 @@ function draw() {
 - Visualmente, la ansiedad se representa con una onda sinusoide central (sin()) que simula el pulso cardíaco, aplicando conceptos de la Unidad 3. La regla es directa: el volumen del micrófono altera su amplitud y frecuencia; un sonido alto genera una oscilación violenta. Para intensificar esta "estática mental", integro Ruido Perlin (noise()) a los vértices de la onda (Unidad 1).
 - Finalmente, la relación con los "retos" se rige mediante la aplicación de fuerzas (applyForce y Motion 101 de la Unidad 2). Estos retos son entidades geométricas con masa, posición y velocidad. Narrativamente, el miedo aleja las metas: si el sistema detecta ruido, genera un campo vectorial repulsivo que dispersa las entidades hacia los bordes. Por el contrario, cuando el usuario logra el silencio, la regla se invierte y se activa una suave fuerza de atracción gravitacional.
 - [Link al sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/LAyDt7Rp1)
+- <img width="841" height="850" alt="image" src="https://github.com/user-attachments/assets/7f8674cd-4e62-4268-b3eb-4ed98f7062e6" />
+
 ## Bitácora de reflexión
+
 
 
 
