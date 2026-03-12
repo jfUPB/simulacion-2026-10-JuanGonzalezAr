@@ -338,10 +338,12 @@ function draw() {
 - Para conectar dos péndulos en serie, me di cuenta de que no necesitaba alterar la física interna de la clase Pendulum. El truco lógico recae en la cinemática del archivo principal: dentro de la función draw(), forcé a que el vector pivot del segundo péndulo se actualizara constantemente para ser exactamente igual a las coordenadas del bob (la bola) del primer péndulo. De esta forma, mientras el péndulo superior calcula su oscilación anclado al techo, el péndulo inferior calcula la suya colgando dinámicamente del primero, creando la ilusión visual de un sistema interconectado fluido.
 ## Bitácora de aplicación 
 ### Actividad 11:
-
-
-
+- Mi obra generativa interactiva materializa el miedo y la parálisis que sentimos ante nuevos retos. Usando el micrófono como dispositivo de entrada en tiempo real, la obra plantea que el pánico nubla nuestra visión y aleja nuestras metas. No busco contar una historia lineal, sino usar esta premisa emocional como herramienta de diseño para definir las reglas matemáticas del sistema: el usuario debe controlar su propia respiración o mantener el silencio en su entorno para estabilizar el ecosistema visual y poder "enfrentar" sus retos.
+- Visualmente, la ansiedad se representa con una onda sinusoide central (sin()) que simula el pulso cardíaco, aplicando conceptos de la Unidad 3. La regla es directa: el volumen del micrófono altera su amplitud y frecuencia; un sonido alto genera una oscilación violenta. Para intensificar esta "estática mental", integro Ruido Perlin (noise()) a los vértices de la onda (Unidad 1).
+- Finalmente, la relación con los "retos" se rige mediante la aplicación de fuerzas (applyForce y Motion 101 de la Unidad 2). Estos retos son entidades geométricas con masa, posición y velocidad. Narrativamente, el miedo aleja las metas: si el sistema detecta ruido, genera un campo vectorial repulsivo que dispersa las entidades hacia los bordes. Por el contrario, cuando el usuario logra el silencio, la regla se invierte y se activa una suave fuerza de atracción gravitacional.
+- [Link al sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/LAyDt7Rp1)
 ## Bitácora de reflexión
+
 
 
 
