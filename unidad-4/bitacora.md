@@ -346,7 +346,10 @@ function draw() {
 
 ## Bitácora de reflexión
 
+- Lo que he aprendido en estas unidades es a armar la arquitectura física pa que mis experiencias interactivas no se sientan como un software rígido, sino como sistemas vivos. Empecé entendiendo el esqueleto de todo con los vectores, la velocidad y la aceleración pa mover los elementos en la pantalla, pero me di cuenta que pa que la vuelta sea verdaderamente inmersiva, hay que aplicarle fuerzas de la vida real como la gravedad o la fricción, usando la narrativa emocional pa definir exactamente cómo el código va a reaccionar a lo que hace el usuario. A eso le sumé el movimiento angular y las funciones trigonométricas pa darle un "latido" a la obra y que las cosas respiren o roten por sí solas, y finalmente le metí la aleatoriedad orgánica del ruido Perlin y los vuelos de Lévy pa romper con toda esa perfección matemática y lograr que la interacción fluya de forma natural e impredecible, que es lo que realmente me sirve como ingeniero en entretenimiento digital pa conectar a la gente con la obra.
 
+
+- <img width="1309" height="582" alt="image" src="https://github.com/user-attachments/assets/e5876e7b-24d2-4e2d-a455-806b96c61450" />
 
 
 
