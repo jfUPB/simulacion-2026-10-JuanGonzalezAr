@@ -38,6 +38,29 @@ ___
 - **Si quisieras cambiar la representación visual, ¿qué cambiarías y qué NO?**
 - Lo que SÍ cambiaría: Únicamente el bloque de código dentro del método show(). Podría borrar el circle() y poner un rect(), usar line() conectando la posición anterior con la nueva, o cargar una textura gráfica con image().
 - Lo que NO cambiaría: Absolutamente nada de las matemáticas ni de la lógica. No tocar el constructor, ni applyForce(), ni update(), ni isDead(). La física de Motion 101 es completamente agnóstica a la apariencia del objeto; calcular la aceleración de un vector funciona exactamente igual si estás dibujando un píxel, una imagen PNG o un modelo 3D.
+### Actividad 02🔃
+- **Responsabilidades transferidas de draw() a la clase Emitter**
+- En el Ejemplo 4.2, la función global draw() era la responsable de hacer casi todo el trabajo pesado. En este nuevo código, esas responsabilidades se han delegado (encapsulado) dentro de la clase Emitter:
+  - **La memoria:** La lista que guarda a los individuos (this.particles = []) ya no es global; ahora le pertenece exclusivamente al emisor.
+  - **El nacimiento:** La lógica de crear una nueva partícula (addParticle()) usando coordenadas específicas.
+  - **La actualización y limpieza:** El bucle inverso for que ejecuta la física de cada partícula (run()) y revisa su ciclo vital para eliminarla (splice) cuando muere.
+___
+- **La ventaja de encapsular la lógica de emisión**
+- La principal ventaja es la escalabilidad e independencia. Si toda la lógica estuviera suelta en el draw(), solo podrías tener un grupo de partículas en toda la pantalla (como una sola manguera de agua). Al encapsular esta lógica en una clase, conviertes al Emitter en una "fábrica" portátil. Puedes tener 10, 50 o 100 fábricas distintas funcionando al mismo tiempo en diferentes coordenadas de la pantalla, y ninguna interferirá con la otra porque cada una gestiona su propio arreglo privado de partículas
+___
+- **Creación de Emisores vs. Creación de Partículas**
+- **Quién crea los emitters?** El entorno global del programa (el Sketch) guiado por la interacción del usuario. Específicamente, se crean dentro de la función mousePressed(), cada vez que haces clic.
+- **¿Quién crea las partículas?** El emisor. El entorno global no sabe nada de partículas; le pide al emisor que trabaje, y es el método interno addParticle() de la clase Emitter el que se encarga de instanciar cada nueva partícula en la coordenada de origen de esa fábrica.
+___
+- **Diagrama de Jerarquía y Niveles de Colección**
+- El sistema ahora tiene dos niveles de colección (un arreglo que contiene objetos, los cuales a su vez contienen sus propios arreglos).
+- <img width="1355" height="667" alt="image" src="https://github.com/user-attachments/assets/ff622b9d-b833-4394-a3e7-40a43c9cbfbd" />
+___
+#### Transferencia conceptual
+- **Transferencia conceptual (Sin jerga de programación)**
+- En este sistema interactivo, el usuario interviene en el estado del mundo creando un nuevo emisor cada vez que actúa. Este emisor funciona como un gestor autónomo que genera de manera continua nuevas entidades desde un punto de origen fijo. Cada entidad nace con un ciclo de vida determinado y es sometida a una fuerza ambiental constante que altera su comportamiento físico en el espacio. Para asegurar el equilibrio del ecosistema y evitar la saturación, cada emisor administra de forma independiente su propia colección de entidades, evaluando permanentemente su estado vital para descartar a aquellas que han agotado su tiempo.
+
+
 ## Bitácora de aplicación 
 
 
