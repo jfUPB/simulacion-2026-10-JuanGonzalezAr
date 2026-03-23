@@ -62,6 +62,17 @@ ___
 
 
 ## Bitácora de aplicación 
+- **Concepto**: Representaré el ciclo de vida de las estrellas, abarcando desde su formación al agrupar polvo cósmico hasta su violenta muerte en forma de supernova. La idea principal que quiero comunicar es que la destrucción en el universo no es un vacío final, sino un acto vital de fertilización y constante renacimiento
 
 
+| Elemento del Sistema | Decisión de Diseño / Significado Narrativo |
+| :--- | :--- |
+| **Nacimiento (Emisor)** | Las partículas de polvo (`Dust`) se generan espontáneamente al inicio o tras una explosión. Las estrellas (`Star`) **solo** nacen si dos o más partículas de polvo colisionan. **Significado:** La materia prima ya existe en el cosmos. La vida estelar requiere que la materia se acumule y alcance un punto crítico. |
+| **Tipo de Partícula 1: Estrella (`Star`)** | Es la clase base. De gran tamaño, pulsa visualmente (usando trigonometría) y su color transiciona de azul (joven/caliente) a rojo (vieja/fría) según avanza su vida. **Significado:** Representa la etapa de madurez y estabilidad. El color y el pulso comunican su desgaste energético a lo largo del tiempo. |
+| **Tipo de Partícula 2: Polvo Cósmico (`Dust`)** | Hereda de la clase `Star` (Polimorfismo). Es pequeña, se mueve influenciada por Ruido Perlin y su color se desvanece suavemente. **Significado:** Son los remanentes inestables. Representan la fragilidad; si no logran unirse para formar una estrella, simplemente se disuelven en el olvido del vacío. |
+| **Fuerzas (Gravedad y Fricción)** | Se aplica una fricción constante para frenar las partículas. Al hacer clic, se activa un vector de atracción fuerte hacia el cursor. **Significado:** El usuario interactúa inyectando gravedad al sistema. Es la fuerza ordenadora que saca al polvo de su caos para darle un propósito (crear estrellas). |
+| **Condición de Muerte (`lifespan`)** | El polvo muere lentamente por desvanecimiento de su canal Alpha. La estrella muere abruptamente tras un límite de tiempo fijo. **Significado:** La muerte térmica (polvo) frente a la muerte catastrófica (estrella). Ambas son inevitables, pero ocurren a ritmos distintos. |
+| **Comunicación de la Muerte (Supernova)** | Cuando la condición de muerte de la estrella se cumple, gatilla un método `explode()` antes de ser borrada, emitiendo decenas de nuevas partículas de polvo. **Significado:** La muerte estelar es la semilla de la creación. No es solo "desaparecer", es devolverle la energía al sistema para continuar el ciclo. |
+| **Gestión de Memoria (Ley de Conservación)** | Uso estricto de recorridos en reversa (`splice`) y constantes de `MAX_PARTICLES` (300) y `MIN_PARTICLES` (100). **Significado:** A nivel técnico, optimiza el rendimiento y evita que el programa colapse. Narrativamente, representa la Ley de Conservación de la Masa: el universo recicla su materia en un ciclo infinito sin sobrepoblarse ni quedarse vacío. |
+| **Interacción del Usuario** | **Mouse Press (Atracción) y Mouse Release (Colapso):** El usuario junta el polvo sosteniendo el clic y, al soltarlo, la materia concentrada colapsa formando estrellas. **Significado:** El espectador deja de ser pasivo y asume el rol de una fuerza cósmica fundamental, siendo el catalizador indispensable para que la experiencia cobre vida. |
 ## Bitácora de reflexión
