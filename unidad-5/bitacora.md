@@ -76,4 +76,10 @@ ___
 | **Comunicación de la Muerte (Supernova)** | Cuando la condición de muerte de la estrella se cumple, gatilla un método `explode()` antes de ser borrada, emitiendo decenas de nuevas partículas de polvo. **Significado:** La muerte estelar es la semilla de la creación. No es solo "desaparecer", es devolverle la energía al sistema para continuar el ciclo. |
 | **Gestión de Memoria (Ley de Conservación)** | Uso estricto de recorridos en reversa (`splice`) y constantes de `MAX_PARTICLES` (300) y `MIN_PARTICLES` (100). **Significado:** A nivel técnico, optimiza el rendimiento y evita que el programa colapse. Narrativamente, representa la Ley de Conservación de la Masa: el universo recicla su materia en un ciclo infinito sin sobrepoblarse ni quedarse vacío. |
 | **Interacción del Usuario** | **Mouse Press (Atracción) y Mouse Release (Colapso):** El usuario junta el polvo sosteniendo el clic y, al soltarlo, la materia concentrada colapsa formando estrellas. **Significado:** El espectador deja de ser pasivo y asume el rol de una fuerza cósmica fundamental, siendo el catalizador indispensable para que la experiencia cobre vida. |
+
+#### Capturas:
+- <img width="945" height="818" alt="image" src="https://github.com/user-attachments/assets/c1756197-df10-4169-9545-9dd0cd3e66c2" />
+- <img width="944" height="845" alt="image" src="https://github.com/user-attachments/assets/0521a4d3-63b0-4791-8779-e59ac0741f1f" />
+- <img width="943" height="830" alt="image" src="https://github.com/user-attachments/assets/37debf2e-8742-4427-850e-cb1143f5a4d5" />
+
 ## Bitácora de reflexión
