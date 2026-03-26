@@ -62,6 +62,7 @@ ___
 
 
 ## Bitácora de aplicación 
+### Actividad 05🎨
 - **Concepto**: Representaré el ciclo de vida de las estrellas, abarcando desde su formación al agrupar polvo cósmico hasta su violenta muerte en forma de supernova. La idea principal que quiero comunicar es que la destrucción en el universo no es un vacío final, sino un acto vital de fertilización y constante renacimiento
 
 
