@@ -86,5 +86,182 @@ ___
 - <img width="945" height="818" alt="image" src="https://github.com/user-attachments/assets/c1756197-df10-4169-9545-9dd0cd3e66c2" />
 - <img width="944" height="845" alt="image" src="https://github.com/user-attachments/assets/0521a4d3-63b0-4791-8779-e59ac0741f1f" />
 - <img width="943" height="830" alt="image" src="https://github.com/user-attachments/assets/37debf2e-8742-4427-850e-cb1143f5a4d5" />
+#### Sketch:
+- [Link Al Sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/kTHNDxwCu)
+```
+let particles = [];
+const MAX_PARTICLES = 300; 
+const MIN_PARTICLES = 100;  
 
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  particles = [];
+  
+  for (let i = 0; i < MIN_PARTICLES; i++) {
+    particles.push(new Dust(random(width), random(height)));
+  }
+}
+
+function draw() {
+  background(5, 7, 12, 60);
+
+  
+  if (particles.length < MIN_PARTICLES) {
+    particles.push(new Dust(random(width), random(height)));
+  }
+
+  let gravityWell = createVector(mouseX, mouseY);
+
+  for (let i = particles.length - 1; i >= 0; i--) {
+    let p = particles[i];
+    
+    p.velocity.mult(0.99);
+
+    if (mouseIsPressed) {
+      let attraction = p5.Vector.sub(gravityWell, p.position);
+      let d = attraction.mag();
+      if (d < 300) {
+        attraction.normalize();
+        attraction.mult(0.5); 
+        p.applyForce(attraction);
+      }
+    }
+
+    p.update();
+    p.show();
+
+    if (p.isDead()) {
+      if (p instanceof Star) {
+        p.explode(); 
+      }
+      particles.splice(i, 1);
+    }
+  }
+}
+
+class CosmicParticle {
+  constructor(x, y) {
+    this.position = createVector(x, y);
+    this.velocity = p5.Vector.random2D().mult(random(0.5, 2));
+    this.acceleration = createVector(0, 0);
+    this.mass = 1;
+    this.lifespan = 255; 
+  }
+
+  applyForce(force) {
+    let f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.acceleration.mult(0);
+    this.lifespan -= 0.5; // El polvo se desvanece poco a poco
+  }
+
+  isDead() {
+    return this.lifespan < 0;
+  }
+}
+
+class Star extends CosmicParticle {
+  constructor(x, y) {
+    super(x, y);
+    this.size = random(15, 30);
+    this.mass = this.size * 2;
+    this.baseLifespan = random(200, 400); 
+    this.lifespan = this.baseLifespan;
+    this.birthTime = frameCount;
+  }
+
+  update() {
+    // La estrella vive un tiempo fijo basado en los fotogramas
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.acceleration.mult(0);
+    this.lifespan = this.baseLifespan - (frameCount - this.birthTime);
+  }
+
+  show() {
+    // Oscilación (Latido de la estrella)
+    let pulse = sin(frameCount * 0.1) * 3; 
+    let currentSize = this.size + pulse;
+    
+    // Transición de color: Azul (joven) -> Naranja/Rojo (vieja)
+    let ageRatio = 1 - (this.lifespan / this.baseLifespan);
+    let startColor = color(100, 200, 255); 
+    let endColor = color(255, 100, 50);   
+    let currentColor = lerpColor(startColor, endColor, ageRatio);
+    
+    noStroke();
+    // Brillo exterior
+    for (let i = 0; i < 3; i++) {
+      fill(red(currentColor), green(currentColor), blue(currentColor), 40);
+      circle(this.position.x, this.position.y, currentSize + i * 8);
+    }
+    // Núcleo
+    fill(255); 
+    circle(this.position.x, this.position.y, currentSize * 0.6);
+  }
+
+  explode() {
+    let particulasAExpulsar = 40;
+    for (let i = 0; i < particulasAExpulsar; i++) {
+      if (particles.length < MAX_PARTICLES) {
+        particles.push(new Dust(this.position.x, this.position.y));
+      }
+    }
+  }
+
+  isDead() {
+    return this.lifespan <= 0;
+  }
+}
+
+
+class Dust extends CosmicParticle {
+  constructor(x, y) {
+    super(x, y);
+    this.size = random(2, 5);
+    this.mass = this.size;
+    this.lifespan = random(150, 255); 
+    this.color = color(random(100, 255), random(100, 255), random(150, 255));
+  }
+
+  update() {
+    super.update();
+    let n = noise(this.position.x * 0.01, this.position.y * 0.01, frameCount * 0.01);
+    let angle = map(n, 0, 1, 0, TWO_PI * 2);
+    let drift = p5.Vector.fromAngle(angle).mult(0.05);
+    this.applyForce(drift);
+  }
+
+  show() {
+    noStroke();
+    fill(red(this.color), green(this.color), blue(this.color), this.lifespan);
+    circle(this.position.x, this.position.y, this.size);
+  }
+}
+
+function mouseReleased() {
+  for (let i = particles.length - 1; i >= 0; i--) {
+    let p1 = particles[i];
+    if (p1 instanceof Dust) {
+      for (let j = i - 1; j >= 0; j--) {
+        let p2 = particles[j];
+        if (p2 instanceof Dust) {
+          let d = dist(p1.position.x, p1.position.y, p2.position.x, p2.position.y);
+          if (d < 15) {
+            particles.push(new Star(p1.position.x, p1.position.y));
+            particles.splice(i, 1);
+            particles.splice(j, 1);
+            break; 
+          }
+        }
+      }
+    }
+  }
+}
+```
 ## Bitácora de reflexión
