@@ -88,7 +88,7 @@ ___
 - <img width="943" height="830" alt="image" src="https://github.com/user-attachments/assets/37debf2e-8742-4427-850e-cb1143f5a4d5" />
 #### Sketch:
 - [Link Al Sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/kTHNDxwCu)
-```
+```js
 let particles = [];
 const MAX_PARTICLES = 300; 
 const MIN_PARTICLES = 100;  
