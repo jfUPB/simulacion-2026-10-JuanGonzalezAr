@@ -66,7 +66,9 @@ ___
 - **Concepto**: Representaré el ciclo de vida de las estrellas, abarcando desde su formación al agrupar polvo cósmico hasta su violenta muerte en forma de supernova. La idea principal que quiero comunicar es que la destrucción en el universo no es un vacío final, sino un acto vital de fertilización y constante renacimiento
 
 #### Bocetos🥑
-- 
+- ![WhatsApp Image 2026-03-26 at 11 23 15 AM](https://github.com/user-attachments/assets/faa841e3-2034-4f3c-bf2f-c3a1566026b4)
+- ![WhatsApp Image 2026-03-26 at 11 23 15 AM (1)](https://github.com/user-attachments/assets/040a48f7-50ea-4569-a2b2-4504e298ddb7)
+
 #### Mapa de decisiones😲
 
 | Elemento del Sistema | Decisión de Diseño / Significado Narrativo |
