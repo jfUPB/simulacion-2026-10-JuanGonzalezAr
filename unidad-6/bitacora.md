@@ -110,7 +110,7 @@ Dependiendo de los parámetros, el sistema puede ser:
 * **¿En qué tipo de relación con una canción funcionaría mejor?**
     Funciona increíble con canciones que tengan **muchas capas o texturas (Polifonía)**. Por ejemplo, en el Jazz o la música clásica donde varios instrumentos hacen cosas distintas pero armonizan en conjunto. También en el **Pop Sintético** con arpegios rápidos; cada nota podría ser un agente que se alinea con el ritmo general de la canción.
 
-## Actividad 05
+## Actividad 05🧟‍♂️
     
 ### 1. Comparación de Algoritmos como Recursos de Diseño
 
