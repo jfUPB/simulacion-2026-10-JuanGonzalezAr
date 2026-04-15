@@ -78,7 +78,38 @@
 * **Sensaciones:** Armonía, flujo constante y orden invisible.
 * **Música ideal:** **Ambient o Minimalismo** (estilo *Max Richter*). Sonidos de evolución lenta que acompañan la repetición visual.
 
+### Actividad 04🐜
+### 1. Las Tres Reglas Básicas
+El flocking se basa en que cada agente solo mira a sus vecinos cercanos para decidir su movimiento:
 
+* **Separación:** Evitar colisiones. El agente siente una fuerza de repulsión si se acerca demasiado a sus vecinos.
+* **Alineación:** Seguir el ritmo. El agente intenta promediar su velocidad y dirección con las de los vecinos que lo rodean.
+* **Cohesión:** Mantenerse unidos. El agente siente una atracción hacia el centro de masa (el promedio de las posiciones) de su grupo local.
+
+### 2. Parámetros y Control
+El sistema se controla mediante **pesos (weights)** y **radios de visión**:
+* **Pesos:** Multiplicadores que definen qué regla es más importante (ej: darle más peso a la separación hace que el grupo sea más esquivo).
+* **Radios de percepción:** Determinan qué tan lejos puede "ver" un agente para considerar a alguien como su vecino.
+* **MaxSpeed y MaxForce:** Definen la rapidez y la agilidad de los agentes para corregir su rumbo.
+
+### 3. Experimento y Modificación
+* **Modificación:** Aumentar drásticamente el peso de **Separación** y reducir el de **Cohesión**, manteniendo una **Alineación** alta.
+* **Efecto:** El grupo deja de parecer una bandada compacta para convertirse en una formación de "desfile" o "tráfico". Los agentes se mueven en la misma dirección pero mantienen una distancia social exagerada, creando patrones de líneas paralelas que evitan tocarse.
+
+### 4. Comportamiento Emergente
+Dependiendo de los parámetros, el sistema puede ser:
+* **Fluido:** Cuando las fuerzas están equilibradas; parece agua o un banco de peces.
+* **Nervioso:** Si la `MaxForce` es muy alta y los agentes corrigen su posición constantemente.
+* **Estable:** Cuando logran formar grupos que viajan juntos por largo tiempo sin fragmentarse.
+
+### 🧠 Reflexión Creativa
+
+* **¿Qué atmósfera visual produce el flocking?**
+    Produce una atmósfera de **inteligencia colectiva y dinamismo**. Se siente como algo vivo y orgánico, donde no hay un líder pero sí un orden. Transmite una sensación de comunidad y protección.
+
+* **¿En qué tipo de relación con una canción funcionaría mejor?**
+    Funciona increíble con canciones que tengan **muchas capas o texturas (Polifonía)**. Por ejemplo, en el Jazz o la música clásica donde varios instrumentos hacen cosas distintas pero armonizan en conjunto. También en el **Pop Sintético** con arpegios rápidos; cada nota podría ser un agente que se alinea con el ritmo general de la canción.
+    
 ## Bitácora de aplicación 
 
 
