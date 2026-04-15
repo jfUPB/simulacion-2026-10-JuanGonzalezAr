@@ -1,7 +1,7 @@
 # Unidad 6
 
 ## Bitácora de proceso de aprendizaje
-#### Actividad 01🏧
+## Actividad 01🏧
 - **Pieza 1: Fidenza #313 (Estructuras de flujo denso)**
 - **Análisis de Decisiones Visuales**:
 - **Composición:** Es una composición centrípeta donde las líneas parecen converger y arremolinarse, creando una sensación de profundidad y volumen.
@@ -30,7 +30,7 @@
 - **Hipótesis del Sistema:**
 - El sistema parece utilizar un campo de flujo con frecuencias de ruido muy bajas (cambios muy suaves en la dirección). Además, sospecho que existe una regla de probabilidad para la escala: el algoritmo decide aleatoriamente que solo unos pocos agentes serán muy largos y anchos, mientras que el resto del lienzo permanece vacío.
 ----
-### Actividad 02↘️
+## Actividad 02↘️
 1. ¿**Qué es un agente autónomo?** A diferencia de una partícula simple, un agente tiene un propósito (un objetivo, una amenaza o un camino). Shiffman lo define bajo el modelo de Craig Reynolds como un sistema de tres capas: Acción (el movimiento), Dirección (la toma de decisiones) y Selección de Estrategia (el deseo de alcanzar una meta). En resumen: es un objeto que "quiere" algo.
 2. **¿Qué es una steering force?** La steering force (fuerza de dirección) es el mecanismo matemático que permite al agente "maniobrar" de forma fluida. No es una fuerza que golpea al objeto, sino una fuerza de corrección.Se basa en una fórmula sencilla pero poderosa:$$\text{Steering} = \text{Velocidad Deseada} - \text{Velocidad Actual}$$Es la fuerza que el agente aplica para cerrar la brecha entre hacia dónde se mueve ahora y hacia dónde le gustaría moverse para cumplir su objetivo. Es lo que permite que el movimiento no sea rígido, sino que tenga una curvatura orgánica y natural.
 3. **Diferencia entre steering force y fuerzas externas (Gravedad, Viento, Fricción)** La diferencia fundamental radica en el origen y la intención:
@@ -41,7 +41,7 @@
 - Composiciones vivas: En lugar de diseñar una imagen estática, diseñas un sistema donde los elementos se organizan solos. Si aplicas estas reglas a miles de agentes (como Tyler Hobbs), obtienes texturas y ritmos que parecen vivos, porque cada línea "decidió" su trayectoria evitando a otras o siguiendo un flujo.
 - Interactividad profunda: El usuario ya no solo empuja objetos, sino que se convierte en parte del ecosistema. El agente puede reaccionar a ti de formas complejas: rodeándote, siguiéndote a distancia o imitándote.
 
-### Actividad 03🍎
+## Actividad 03🍎
 ### 1. Construcción del Sistema
 * **¿Cómo está construido el campo de flujo?** Es una **cuadrícula (grid)** 2D que divide el lienzo en celdas. Cada celda funciona como un contenedor de información direccional que afecta a cualquier objeto que pase sobre ella.
 
@@ -78,7 +78,7 @@
 * **Sensaciones:** Armonía, flujo constante y orden invisible.
 * **Música ideal:** **Ambient o Minimalismo** (estilo *Max Richter*). Sonidos de evolución lenta que acompañan la repetición visual.
 
-### Actividad 04🐜
+## Actividad 04🐜
 ### 1. Las Tres Reglas Básicas
 El flocking se basa en que cada agente solo mira a sus vecinos cercanos para decidir su movimiento:
 
@@ -109,7 +109,40 @@ Dependiendo de los parámetros, el sistema puede ser:
 
 * **¿En qué tipo de relación con una canción funcionaría mejor?**
     Funciona increíble con canciones que tengan **muchas capas o texturas (Polifonía)**. Por ejemplo, en el Jazz o la música clásica donde varios instrumentos hacen cosas distintas pero armonizan en conjunto. También en el **Pop Sintético** con arpegios rápidos; cada nota podría ser un agente que se alinea con el ritmo general de la canción.
+
+## Actividad 05
     
+### 1. Comparación de Algoritmos como Recursos de Diseño
+
+| Aspecto | Flow Fields (Campos de Flujo) | Flocking (Comportamiento de Bandada) |
+| :--- | :--- | :--- |
+| **Tipo de movimiento** | Dirigido por el entorno. Fluido, continuo y predeterminado por las "corrientes" del lienzo. | Dirigido por la comunidad. Orgánico, enjambres, cambios bruscos de dirección y agrupación. |
+| **Nivel de control visual** | **Alto.** El diseñador esculpe el espacio (ej. usando Ruido Perlin). Los agentes simplemente obedecen ese mapa. | **Bajo/Medio.** El diseñador ajusta los "pesos" (reglas), pero el resultado exacto es impredecible. |
+| **Nivel de emergencia** | **Bajo.** La complejidad visual viene de la textura del fondo, no de la interacción entre los agentes (se ignoran entre sí). | **Muy Alto.** La complejidad visual nace exclusivamente de la interacción local entre los agentes. |
+| **Atmósfera / Sensación** | Determinismo, inevitabilidad, armonía, viento, agua, tranquilidad o flujo constante. | Vida biológica, inteligencia colectiva, nerviosismo, cardúmenes, bandadas, caos bajo control. |
+| **Relación Musical** | Música Ambient, Minimalismo, Drone. Texturas continuas y evolución lenta. | Jazz, IDM, polifonías, crescendos orquestales. Música con múltiples capas interactivas. |
+| **Ventajas** | Excelente para composiciones estéticas fijas (Arte Generativo tipo Tyler Hobbs) y texturas de alta densidad. | Excelente para performances en tiempo real (Live Coding / VJing) porque se siente verdaderamente vivo y reacciona rápido. |
+| **Limitaciones** | Puede sentirse "robótico" o demasiado ordenado si el ruido no está bien calibrado. Los agentes no tienen "conciencia social". | Es difícil obligarlos a quedarse en una zona específica o formar una composición geométrica exacta. |
+
+---
+
+### 2. Diseño Visual aplicado a Estados de Ánimo Musicales
+
+Si tuviera que diseñar los visuales (VJing) para estas cuatro emociones musicales, esta sería mi elección arquitectónica:
+
+* **Contemplativa $\rightarrow$ Flow Field:**
+  * *¿Por qué?* Usaría un campo de flujo con resolución muy suave (Ruido Perlin a gran escala) y agentes muy lentos que dejen una estela larga. La falta de interacción entre los agentes invita a la introspección. El espectador sigue una línea fluida, como un río lento, lo que genera paz mental y foco.
+
+* **Agresiva $\rightarrow$ Flocking:**
+  * *¿Por qué?* Llevaría la regla de **Separación** al máximo y la **Cohesión** al mínimo, con una `MaxSpeed` muy alta. Los agentes rechazarían estar cerca unos de otros, creando un comportamiento de evasión violento, paranoico y errático, perfecto para ritmos pesados, distorsión o *breakbeats* rápidos.
+
+* **Melancólica $\rightarrow$ Flow Field:**
+  * *¿Por qué?* El Flow Field tiene un tono de inevitabilidad. Configaría los vectores apuntando hacia abajo o en espirales lentas, haciendo que los agentes "caigan" o divaguen sin poder cambiar su destino. Representa la deriva y el aislamiento (como lágrimas en la lluvia), donde cada agente sigue su camino solo y eventualmente se desvanece (bajando su canal Alpha).
+
+* **Eufórica $\rightarrow$ Flocking:**
+  * *¿Por qué?* Usaría una **Cohesión** y **Alineación** fortísimas. Miles de agentes uniéndose en un solo ente masivo que viaja a toda velocidad por el lienzo. Este movimiento sincronizado crea una sensación de epicidad y magnitud gigante, ideal para acompañar un *drop* musical de alta energía, donde todas las capas de la canción resuenan en sintonía.
+
+
 ## Bitácora de aplicación 
 
 
