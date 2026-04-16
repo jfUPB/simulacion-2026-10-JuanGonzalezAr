@@ -194,4 +194,18 @@ Se optó por una arquitectura híbrida que alterna entre **Flocking** y **Flow F
 
 ### 8. Explicación de la Relación Audio-Visual
 La visualización no es un mero ecualizador gráfico, sino un **ecosistema paramétrico**. Mediante la herramienta `p5.FFT`, se extraen datos en tiempo real de bandas de frecuencia específicas. Este análisis de datos actúa como un conjunto de reglas físicas invisibles: la música dicta *cuánta* gravedad o viento existe en el entorno, pero son los agentes autónomos los que deciden *cómo* reaccionar a esas fuerzas según sus propias propiedades de inercia y velocidad, logrando un comportamiento emergente y orgánico.
+
+### 9. Registro: Uso explícito de IA como materializador
+
+**Autoría Conceptual y Dirección Visual (Santiago):**
+El concepto central de **"Marea Magnética"**, la selección del tema musical (*Ryd* de Steve Lacy) y la decisión estética de silenciar visualmente la voz para priorizar la instrumental son de mi total autoría. Yo diseñé la narrativa de la pieza a través de tres estados específicos, seleccioné la paleta de colores basada en la portada de la cancion* y definí el **Mapa de Interpretación Performativa** (asignación de teclas y gestos del mouse). El criterio formal y la intención de la pieza nacieron de mis decisiones como diseñador.
+
+**Apoyo Técnico y Materialización (IA):**
+Utilicé la IA como un colaborador técnico y "traductor de código" para los siguientes puntos:
+* **Implementación Algorítmica:** Solicité la escritura de las funciones matemáticas base para los comportamientos de *Flocking* y *Flow Fields*, ajustando los pesos de cohesión y separación bajo mis instrucciones.
+* **Optimización de Hardware:** La IA fue fundamental para reescribir procesos pesados (como el efecto de grano analógico y el ciclo de revisión de vecinos), permitiendo que el sistema funcionara con fluidez (60 FPS) a pesar de las limitaciones de mi procesador.
+* **Iteración y Depuración:** Usé la IA para integrar rápidamente la librería `p5.sound` y para materializar el cambio de morfología de las partículas (de círculos a iconos musicales y distorsiones), asegurando que el código fuera estable durante el cambio de estados.
+
+**Conclusión:**
+La IA funcionó como una herramienta de soporte técnico que me permitió superar barreras de programación y optimización. Sin embargo, la **autoría conceptual es humana**: el sistema no es una generación aleatoria, sino la ejecución técnica de un plano de diseño y una narrativa que yo construí previamente.
 ## Bitácora de reflexión
