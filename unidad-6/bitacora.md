@@ -208,4 +208,13 @@ Utilicé la IA como un colaborador técnico y "traductor de código" para los si
 
 **Conclusión:**
 La IA funcionó como una herramienta de soporte técnico que me permitió superar barreras de programación y optimización. Sin embargo, la **autoría conceptual es humana**: el sistema no es una generación aleatoria, sino la ejecución técnica de un plano de diseño y una narrativa que yo construí previamente.
+
+### Mood Board
+- <img width="907" height="907" alt="image" src="https://github.com/user-attachments/assets/145dece1-0bcd-4174-9d8c-f4a3b66f731a" />
+- <img width="907" height="907" alt="image" src="https://github.com/user-attachments/assets/361993d9-d5bb-4304-87bd-a587325226a4" />
+
+### Bocetos
+- <img width="907" height="907" alt="65a5450a-a364-4e17-8df1-9a94824ab30b" src="https://github.com/user-attachments/assets/119fa42b-97a1-4396-b551-5536ebff1cbe" />
+- <img width="907" height="907" alt="9c3d3429-d8c4-4345-8aa8-3670af58a70e" src="https://github.com/user-attachments/assets/b94884a6-7daa-497e-b824-aeae1d57acab" />
+
 ## Bitácora de reflexión
