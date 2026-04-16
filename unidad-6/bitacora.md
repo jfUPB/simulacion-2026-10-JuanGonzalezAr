@@ -145,5 +145,53 @@ Si tuviera que diseñar los visuales (VJing) para estas cuatro emociones musical
 
 ## Bitácora de aplicación 
 
+# 📄 Documento de Diseño: Instrumento Visual Generativo
 
+**Obra:** Marea Magnética (Magnetic Tide)
+**Track Musical:** *Ryd* - Steve Lacy
+
+---
+
+### 1. Concepto Visual
+La obra es un ecosistema líquido y denso inspirado en un fluido ferromagnético. Busca transmitir la "redondez" y el peso del *groove* característico del Neo-Soul. No se trata de explosiones aleatorias, sino de una masa de agentes visuales que flotan, se contraen y respiran con una elegancia pesada, traduciendo la presión sonora en una marea de partículas controlada por gravedad magnética.
+
+### 2. Relación entre la Visual y la Canción
+El sistema funciona como un acompañamiento a la instrumental, ignorando por completo la pista vocal para darle el protagonismo al paisaje sonoro:
+* **Frecuencias Bajas (Bajo y Kick):** Representan el cimiento de la canción. Su amplitud controla la fuerza de atracción hacia el centro del lienzo. Cada vez que el bajo entra en su loop, la marea visual se comprime y gana densidad.
+* **Frecuencias Medias/Altas (Guitarra y Snare):** Representan la atmósfera. Sus picos de energía inyectan turbulencia al sistema, dispersando la materia en patrones curvos para aliviar la tensión acumulada por el bajo.
+
+### 3. Moodboard y Referencias (Estética "Groove Analógico")
+* **Estilo Visual:** Inspirado en la dirección de fotografía de la película *Sinners (2025)*. Busca alejarse de la frialdad digital limpia para abrazar un contraste cinematográfico y denso.
+* **Textura:** Efecto de "grano" (Noise/Grain) analógico constante sobre todo el lienzo, emulando película de 35mm.
+* **Paleta de Colores:** Fondo en negro asfalto profundo. Las partículas varían entre **Ámbar Quemado** (para la densidad del bajo), **Verde Oliva** (para momentos de calma) y **Rojo Óxido** (para los estallidos del clímax).
+
+### 4. Bocetos (Estructura Espacial)
+* **Boceto 1 (Estado Base - La Marea):** Una masa central amorfa compuesta de pequeños puntos (agentes) muy agrupados. Líneas de fuerza invisibles (flechas) empujan los elementos erráticos del borde hacia este núcleo denso.
+* **Boceto 2 (Estado Clímax - La Ignición):** La masa central estalla. Los agentes cambian su morfología a triángulos. Líneas de flujo largas y caóticas atraviesan la pantalla desde el centro hacia los extremos, representando la dispersión violenta de la energía.
+
+### 5. Mapa de Decisiones (Justificación Formal)
+
+| Decisión de Diseño | Intención Narrativa / Conceptual |
+| :--- | :--- |
+| **Grano Analógico en el lienzo** | Evoca la textura *vintage* y el carácter "lo-fi" de Steve Lacy, dando un peso táctil a la imagen. |
+| **Colores Ámbar y Óxido** | Transmiten la calidez de la instrumentación real (guitarras y bajos eléctricos) frente a la estética de los sintetizadores. |
+| **Formas Triangulares en Clímax** | El cambio morfológico de círculos suaves a triángulos rompe la armonía visual y genera una tensión o "filo" durante el estribillo. |
+| **Fondo Negro Profundo** | Actúa como el silencio musical o el espacio negativo, permitiendo que la vibración del color y la densidad de la masa resalten por contraste. |
+
+### 6. Mapa de Interpretación (Interacción Performativa)
+La pieza se ejecuta en vivo. No existen interfaces de usuario (UI); el teclado y el mouse son el instrumento.
+
+| Estado Visual | Interacción (Input) | Comportamiento del Algoritmo |
+| :--- | :--- | :--- |
+| **1. Groove Base** | **Ninguno** *(Automático)* | **Flocking suave.** Enjambre espeso y cohesivo reaccionando al bajo. El mouse actúa como perturbador que revuelve el líquido. |
+| **2. Corrientes** | **Mantener Tecla [A]** | **Flow Field activado.** Se apaga la cohesión. Los agentes siguen trayectorias largas y fluidas por toda la pantalla (acompaña acordes de guitarra). |
+| **3. Clímax** | **Toggle Barra [Espacio]** | **Ignición Magnética.** Separación extrema, comportamiento nervioso. El mouse cambia a modo "Creador" estallando nuevas geometrías al hacer clic. |
+
+### 7. Justificación del Algoritmo Elegido
+Se optó por una arquitectura híbrida que alterna entre **Flocking** y **Flow Fields**:
+* El **Flocking** es indispensable para representar la **colectividad del groove**. Permite simular cómo el bajo de la canción une a todas las partículas en una sola masa rítmica.
+* El **Flow Field** es necesario para representar la **atmósfera**. Al cambiar a este algoritmo, los agentes se independizan de la masa central y viajan libremente, traduciendo visualmente la espacialidad y reverberación de la guitarra.
+
+### 8. Explicación de la Relación Audio-Visual
+La visualización no es un mero ecualizador gráfico, sino un **ecosistema paramétrico**. Mediante la herramienta `p5.FFT`, se extraen datos en tiempo real de bandas de frecuencia específicas. Este análisis de datos actúa como un conjunto de reglas físicas invisibles: la música dicta *cuánta* gravedad o viento existe en el entorno, pero son los agentes autónomos los que deciden *cómo* reaccionar a esas fuerzas según sus propias propiedades de inercia y velocidad, logrando un comportamiento emergente y orgánico.
 ## Bitácora de reflexión
