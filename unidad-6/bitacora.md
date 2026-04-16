@@ -210,4 +210,5 @@ La IA funcionó como una herramienta de soporte técnico que me permitió supera
 
 ### 10. Enlace al Sketch
 - [Marea Magnetica](https://editor.p5js.org/JuanGonzalezAr/sketches/mBE4CFGCC)
+- [Full Screeh](https://editor.p5js.org/JuanGonzalezAr/full/mBE4CFGCC)
 ## Bitácora de reflexión
