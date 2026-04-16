@@ -160,16 +160,7 @@ El sistema funciona como un acompañamiento a la instrumental, ignorando por com
 * **Frecuencias Bajas (Bajo y Kick):** Representan el cimiento de la canción. Su amplitud controla la fuerza de atracción hacia el centro del lienzo. Cada vez que el bajo entra en su loop, la marea visual se comprime y gana densidad.
 * **Frecuencias Medias/Altas (Guitarra y Snare):** Representan la atmósfera. Sus picos de energía inyectan turbulencia al sistema, dispersando la materia en patrones curvos para aliviar la tensión acumulada por el bajo.
 
-### 3. Moodboard y Referencias (Estética "Groove Analógico")
-* **Estilo Visual:** Inspirado en la dirección de fotografía de la película *Sinners (2025)*. Busca alejarse de la frialdad digital limpia para abrazar un contraste cinematográfico y denso.
-* **Textura:** Efecto de "grano" (Noise/Grain) analógico constante sobre todo el lienzo, emulando película de 35mm.
-* **Paleta de Colores:** Fondo en negro asfalto profundo. Las partículas varían entre **Ámbar Quemado** (para la densidad del bajo), **Verde Oliva** (para momentos de calma) y **Rojo Óxido** (para los estallidos del clímax).
-
-### 4. Bocetos (Estructura Espacial)
-* **Boceto 1 (Estado Base - La Marea):** Una masa central amorfa compuesta de pequeños puntos (agentes) muy agrupados. Líneas de fuerza invisibles (flechas) empujan los elementos erráticos del borde hacia este núcleo denso.
-* **Boceto 2 (Estado Clímax - La Ignición):** La masa central estalla. Los agentes cambian su morfología a triángulos. Líneas de flujo largas y caóticas atraviesan la pantalla desde el centro hacia los extremos, representando la dispersión violenta de la energía.
-
-### 5. Mapa de Decisiones (Justificación Formal)
+### 3. Mapa de Decisiones (Justificación Formal)
 
 | Decisión de Diseño | Intención Narrativa / Conceptual |
 | :--- | :--- |
@@ -178,7 +169,7 @@ El sistema funciona como un acompañamiento a la instrumental, ignorando por com
 | **Notas Musicales En Rojo** | El cambio morfológico de notas suaves y de color ambar a color rojo intenso rompe la calma visual y genera una tensión o "filo" durante el estribillo. |
 | **Fondo Negro Profundo** | Actúa como el silencio musical o el espacio negativo, permitiendo que la vibración del color y la densidad de la masa resalten por contraste. |
 
-### 6. Mapa de Interpretación (Interacción Performativa)
+### 4. Mapa de Interpretación (Interacción Performativa)
 La pieza se ejecuta en vivo. No existen interfaces de usuario (UI); el teclado y el mouse son el instrumento.
 
 | Estado Visual | Interacción (Input) | Comportamiento del Algoritmo |
@@ -187,15 +178,15 @@ La pieza se ejecuta en vivo. No existen interfaces de usuario (UI); el teclado y
 | **2. Corrientes** | **Mantener Tecla [A]** | **Flow Field activado.** Se apaga la cohesión. Los agentes siguen trayectorias largas y fluidas por toda la pantalla (acompaña acordes de guitarra). |
 | **3. Clímax** | **Toggle Barra [Espacio]** | **Ignición Magnética.** Separación extrema, comportamiento nervioso. El mouse cambia a modo "Creador" estallando nuevas direcciones que hace que las particulas nunca se toquen al hacer clic. |
 
-### 7. Justificación del Algoritmo Elegido
+### 5. Justificación del Algoritmo Elegido
 Se optó por una arquitectura híbrida que alterna entre **Flocking** y **Flow Fields**:
 * El **Flocking** es indispensable para representar la **colectividad del groove**. Permite simular cómo el bajo de la canción une a todas las partículas en una sola masa rítmica.
 * El **Flow Field** es necesario para representar la **atmósfera**. Al cambiar a este algoritmo, los agentes se independizan de la masa central y viajan libremente, traduciendo visualmente la espacialidad y reverberación de la guitarra.
 
-### 8. Explicación de la Relación Audio-Visual
+### 6. Explicación de la Relación Audio-Visual
 La visualización no es un mero ecualizador gráfico, sino un **ecosistema paramétrico**. Mediante la herramienta `p5.FFT`, se extraen datos en tiempo real de bandas de frecuencia específicas. Este análisis de datos actúa como un conjunto de reglas físicas invisibles: la música dicta *cuánta* gravedad o viento existe en el entorno, pero son los agentes autónomos los que deciden *cómo* reaccionar a esas fuerzas según sus propias propiedades de inercia y velocidad, logrando un comportamiento emergente y orgánico.
 
-### 9. Registro: Uso explícito de IA como materializador
+### 7. Registro: Uso explícito de IA como materializador
 
 **Autoría Conceptual y Dirección Visual (Santiago):**
 El concepto central de **"Marea Magnética"**, la selección del tema musical (*Ryd* de Steve Lacy) y la decisión estética de silenciar visualmente la voz para priorizar la instrumental son de mi total autoría. Yo diseñé la narrativa de la pieza a través de tres estados específicos, seleccioné la paleta de colores basada en la portada de la cancion* y definí el **Mapa de Interpretación Performativa** (asignación de teclas y gestos del mouse). El criterio formal y la intención de la pieza nacieron de mis decisiones como diseñador.
@@ -209,11 +200,11 @@ Utilicé la IA como un colaborador técnico y "traductor de código" para los si
 **Conclusión:**
 La IA funcionó como una herramienta de soporte técnico que me permitió superar barreras de programación y optimización. Sin embargo, la **autoría conceptual es humana**: el sistema no es una generación aleatoria, sino la ejecución técnica de un plano de diseño y una narrativa que yo construí previamente.
 
-### Mood Board
+### 8. Mood Board
 - <img width="907" height="907" alt="image" src="https://github.com/user-attachments/assets/145dece1-0bcd-4174-9d8c-f4a3b66f731a" />
 - <img width="907" height="907" alt="image" src="https://github.com/user-attachments/assets/361993d9-d5bb-4304-87bd-a587325226a4" />
 
-### Bocetos
+### 9. Bocetos
 - <img width="907" height="907" alt="65a5450a-a364-4e17-8df1-9a94824ab30b" src="https://github.com/user-attachments/assets/119fa42b-97a1-4396-b551-5536ebff1cbe" />
 - <img width="907" height="907" alt="9c3d3429-d8c4-4345-8aa8-3670af58a70e" src="https://github.com/user-attachments/assets/b94884a6-7daa-497e-b824-aeae1d57acab" />
 
