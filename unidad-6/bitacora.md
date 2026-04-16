@@ -175,7 +175,7 @@ El sistema funciona como un acompañamiento a la instrumental, ignorando por com
 | :--- | :--- |
 | **Grano Analógico en el lienzo** | Evoca la textura *vintage* y el carácter "lo-fi" de Steve Lacy, dando un peso táctil a la imagen. |
 | **Colores Ámbar y Óxido** | Transmiten la calidez de la instrumentación real (guitarras y bajos eléctricos) frente a la estética de los sintetizadores. |
-| **Formas Triangulares en Clímax** | El cambio morfológico de círculos suaves a triángulos rompe la armonía visual y genera una tensión o "filo" durante el estribillo. |
+| **Notas Musicales En Rojo** | El cambio morfológico de notas suaves y de color ambar a color rojo intenso rompe la calma visual y genera una tensión o "filo" durante el estribillo. |
 | **Fondo Negro Profundo** | Actúa como el silencio musical o el espacio negativo, permitiendo que la vibración del color y la densidad de la masa resalten por contraste. |
 
 ### 6. Mapa de Interpretación (Interacción Performativa)
@@ -185,7 +185,7 @@ La pieza se ejecuta en vivo. No existen interfaces de usuario (UI); el teclado y
 | :--- | :--- | :--- |
 | **1. Groove Base** | **Ninguno** *(Automático)* | **Flocking suave.** Enjambre espeso y cohesivo reaccionando al bajo. El mouse actúa como perturbador que revuelve el líquido. |
 | **2. Corrientes** | **Mantener Tecla [A]** | **Flow Field activado.** Se apaga la cohesión. Los agentes siguen trayectorias largas y fluidas por toda la pantalla (acompaña acordes de guitarra). |
-| **3. Clímax** | **Toggle Barra [Espacio]** | **Ignición Magnética.** Separación extrema, comportamiento nervioso. El mouse cambia a modo "Creador" estallando nuevas geometrías al hacer clic. |
+| **3. Clímax** | **Toggle Barra [Espacio]** | **Ignición Magnética.** Separación extrema, comportamiento nervioso. El mouse cambia a modo "Creador" estallando nuevas direcciones que hace que las particulas nunca se toquen al hacer clic. |
 
 ### 7. Justificación del Algoritmo Elegido
 Se optó por una arquitectura híbrida que alterna entre **Flocking** y **Flow Fields**:
