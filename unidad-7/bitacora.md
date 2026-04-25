@@ -212,8 +212,7 @@ Específicamente, busco investigar:
 
 ---
 
-### 📸 Registro Visual
-*(Aquí insertaré las capturas de pantalla de los experimentos ejecutándose en mi navegador)*
+
 
 
 ## Bitácora de aplicación 
