@@ -212,7 +212,59 @@ Específicamente, busco investigar:
 
 ---
 
+# 🔊 Bitácora: Exploración de Audio en p5.js (Actividad 03)
 
+## 1. Introducción
+En esta fase, investigué cómo traducir señales sonoras en datos de entrada (*inputs*) capaces de dictar el comportamiento de un motor de física (**Matter.js**). El objetivo principal fue diferenciar entre respuestas **puntuales** (basadas en eventos) y respuestas **continuas** (basadas en estados).
+
+---
+
+## 2. Experimentos Realizados
+
+### Experimento 1: Respuesta Puntual mediante Energía de Bajos (FFT)
+Para este ejercicio, utilicé un audio de impacto rítmico (*Dino Stomp*) para observar cómo un pico de energía en frecuencias bajas puede alterar la estabilidad de cuerpos rígidos.
+
+* **Dato leído:** Utilicé la función `fft.getEnergy("bass")`. Este valor analiza el espectro de frecuencias y devuelve la intensidad de los sonidos graves (de 0 a 255).
+* **Comportamiento activado:** Implementé un umbral (*threshold*). Cuando la energía de bajos supera el valor de 200 (momento del impacto), el sistema aplica una fuerza física mediante `Matter.Body.applyForce()`.
+* **Resultado físico:** Los cuerpos en pantalla reciben un impulso vertical súbito, provocando que "salten" al ritmo exacto de la pisada. Es una respuesta de tipo **puntual**.
+
+
+
+### Experimento 2: Respuesta Continua mediante Amplitud (Gravedad Dinámica)
+En este segundo ejercicio, utilicé un sonido ambiente de tipo *Ethereal Lush Pad* para generar un comportamiento físico atmosférico y fluido.
+
+* **Dato leído:** Utilicé `p5.Amplitude()`, que entrega un valor normalizado (RMS) entre 0.0 y 1.0 del volumen general de la atmósfera sonora.
+* **Comportamiento activado:** Mapeé el valor de la amplitud directamente a la propiedad `engine.world.gravity.y` del motor físico.
+* **Resultado físico:** Creé un sistema de "levitación sonora". Dado que el *Lush Pad* tiene crecimientos suaves de volumen, la gravedad del mundo cambia de forma gradual. Cuando el sonido envuelve el espacio, los objetos flotan hacia arriba; cuando el sonido desvanece, recuperan su peso y caen lentamente. Es una respuesta **continua** y orgánica.
+
+
+
+---
+
+## 3. Análisis de Datos Sonoros
+
+| Concepto | Aplicación en el Experimento | Utilidad Semántica |
+| :--- | :--- | :--- |
+| **Amplitud** | Control de gravedad global. | Generar atmósferas y estados de ánimo constantes. |
+| **Energía (FFT)** | Detección de golpes de bajo (Bass). | Sincronizar impactos físicos con la percusión. |
+| **Respuesta Puntual** | Salto de las cajas en el "stomp". | Ideal para disparar eventos únicos (explosiones). |
+| **Respuesta Continua** | Levitación según el "Lush Pad". | Ideal para representar fluidez y movimientos vivos. |
+
+---
+
+## 4. Estrategia Sonora para el Proyecto Final
+
+Para el desarrollo de mi pieza tipográfica, me interesa una combinación de ambas estrategias:
+
+1.  **Respuesta Continua (Amplitud):** Utilizar la amplitud del ambiente para que la palabra vibre o se mantenga en un estado de flotación leve, sugiriendo una "tensión interna" constante.
+2.  **Respuesta Puntual (Frecuencias Bajas):** Utilizar picos de energía para disparar la ruptura de los vínculos (*Constraints*) y la explosión definitiva de la palabra.
+
+**Justificación:** Esta dualidad permite que el audio no sea un simple adorno, sino el **motor mecánico** del sistema. El volumen construye la expectativa visual, mientras que el bajo ejecuta la acción semántica de la palabra.
+
+---
+
+### 📸 Registro de Pruebas
+*(Aquí insertaré las capturas de pantalla de los experimentos corriendo en el navegador)*
 
 
 ## Bitácora de aplicación 
