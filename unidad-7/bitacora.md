@@ -263,8 +263,19 @@ Para el desarrollo de mi pieza tipográfica, me interesa una combinación de amb
 
 ---
 
-### 📸 Registro de Pruebas
-*(Aquí insertaré las capturas de pantalla de los experimentos corriendo en el navegador)*
+# 🖋️ Bitácora: Integración Inicial (Actividad 04)
+
+## 1. Prueba Inicial: "BOMB" - Explosión y Recomposición
+Para esta prueba, construí la palabra completa utilizando un sistema de **anclajes elásticos** para cumplir con la intención semántica de una explosión cíclica.
+
+## 2. Desarrollo Técnico
+* **Estructura construida:** La palabra "BOMB" completa, donde cada carácter es un cuerpo rígido independiente en Matter.js.
+* **Propiedad física manipulada:** Utilicé **Constraints (Restricciones)** vinculadas a puntos fijos en el espacio (`pointA`). Esto crea un comportamiento de "memoria elástica": las letras pueden ser desplazadas violentamente, pero el motor físico siempre buscará devolverlas a su coordenada original.
+* **Relación Audio-Física:** Mapeé la energía de los bajos (*Bass*) del audio "Reto Bomb Explotion". Cuando el nivel de energía supera el umbral, se dispara una **fuerza radial** desde la posición de la letra "O", rompiendo la inercia del sistema.
+
+## 3. Evaluación de Significado
+* **¿Qué funcionó?** La explosión se siente orgánica y la recomposición de la palabra refuerza la idea de un ciclo. La "O" actúa exitosamente como el detonante visual al cambiar de tamaño y color con el audio.
+* **¿Qué no funcionó?** Inicialmente, la gravedad hacía que las letras cayeran al fondo. Tuve que desactivar la gravedad global (`gravity.y = 0`) para que el magnetismo de los anclajes fuera el protagonista y la palabra pudiera formarse nuevamente en el centro de la pantalla.
 
 
 ## Bitácora de aplicación 
