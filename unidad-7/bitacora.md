@@ -280,5 +280,58 @@ Para esta prueba, construí la palabra completa utilizando un sistema de **ancla
 
 ## Bitácora de aplicación 
 
+# 📝 Bitácora Final: Tipografía Audiovisual Performativa
 
+## 1. Palabra con intención semántica
+**Palabra elegida:** BOMB (Bomba).
+**Para qué sirve:** La pieza se construye alrededor de los conceptos de tensión acumulada, liberación violenta de energía y daño irreversible. La palabra dicta que el sistema pase de un estado de inmovilidad total a un caos incontrolable, dejando una marca permanente.
+
+## 2. Tipografía semántica
+* **Decisión:** Se utilizó la fuente *Arial* en estilo *Bold*, abandonando estéticas elegantes para adoptar un enfoque crudo, brutalista e industrial, similar a una señal de advertencia ("Warning").
+* **Semántica:** La letra "O" funciona como el núcleo explosivo. Se diferencia mediante el color rojo puro y un comportamiento orgánico (se hincha), contrastando con la rigidez de las demás letras.
+
+## 3. Comportamiento físico con sentido (Matter.js)
+El uso del motor físico no es un adorno, sino la base narrativa de la pieza:
+* **Tensión (Constraints):** Resortes invisibles atan las letras a su posición original, simulando la contención de energía antes de estallar.
+* **Explosión (Vectores y Velocidad Angular):** Al detonar, se aplican fuerzas radiales masivas y rotación aleatoria, simulando una onda expansiva que saca los cuerpos del lienzo.
+* **Daño permanente (Alteración de anclajes):** Durante la explosión, las coordenadas de retorno (`pointA`) se alteran matemáticamente. Cuando las letras son atraídas de vuelta, la palabra se forma "chueca" o desalineada, representando la secuela y el desorden post-traumático de una explosión real.
+
+## 4. Respuesta al audio con sentido semántico (p5.sound)
+El audio (`p5.FFT`) es el motor de los estados de la materia:
+* **Ignición:** El análisis de las frecuencias bajas (Bass) controla directamente el diámetro de la "O", haciéndola "latir" o temblar al ritmo del sonido.
+* **Detonación:** Un umbral específico de energía en los bajos (`bass > 235`) actúa como el interruptor lógico (`if`) que rompe el sistema y desata la explosión, logrando una sincronía audiovisual perfecta.
+
+## 6. Interacción performativa
+La obra fue diseñada como un instrumento audiovisual de ejecución en vivo.
+* **Ejecución:** El intérprete "prepara" la escena asegurando la inmovilidad y el silencio en pantalla gigante. Al presionar la Barra Espaciadora en el momento dramático adecuado, se enciende la mecha y comienza la tensión.
+* El intérprete no guía la explosión; permite que el sistema algorítmico y físico reaccione al audio de forma autónoma, convirtiéndose en espectador del caos junto con la audiencia.
+
+## 7. Moodboard y Referencias
+* **Estética Visual:** Brutalismo tipográfico, diseño industrial, paleta de colores de peligro (Rojo, Naranja, Gris Asfalto).
+* **Atmósfera:** La anticipación visual en películas de suspense y la estética *Grime* o destructiva del arte generativo.
+* **Referencias:** Explosiones controladas y marcas de pólvora en el arte de Cai Guo-Qiang; comportamientos tipográficos elásticos de Zach Lieberman.
+
+## 8. Bocetos
+*(Nota: Aquí debes insertar fotografías de los dibujos a mano alzada que hiciste en papel mostrando la palabra unida, la explosión y el resultado deformado).*
+
+## 9. Mapa de Decisiones
+| Elemento | Decisión Técnica | Significado / Intención |
+| :--- | :--- | :--- |
+| **Forma** | Tipografía pesada (Arial Bold). | Transmite peso, peligro y estética industrial. |
+| **Física** | Fricción de aire mínima (`frictionAir: 0.005`). | Permite una onda expansiva masiva que sale del lienzo. |
+| **Física** | Alteración matemática del `pointA`. | Representa la cicatriz y la incapacidad de volver a la normalidad tras la explosión. |
+| **Audio** | Mapeo de volumen (FFT) a la escala de la 'O'. | Visualiza la acumulación de presión y temperatura inestable. |
+| **Visual** | Capa secundaria (`p5.Graphics`) con partículas oscuras fijas. | Representa el hollín y la huella térmica que deja la detonación en el entorno físico. |
+
+## 10. Mapa de Interpretación (Ejecución en Vivo)
+1. **Setup:** Carga del sistema. Ajuste a pantalla completa (F) y actualización (F5) para centrar la masa de letras en un lienzo oscuro.
+2. **El Silencio:** Interacción cero. Se genera expectativa en el público.
+3. **La Ignición:** Interacción con la Barra Espaciadora. Inicia el audio, la mecha aparece consumiéndose, y el sistema entra en estado crítico (latido rojo).
+4. **El Clímax:** Sin intervención humana, el audio alcanza el umbral de energía, detona el *flash* visual, rompe las inercias y mancha el fondo.
+5. **La Consecuencia:** El intérprete deja que las letras regresen exhaustas y desordenadas. Fin de la performance.
+
+## 11. Uso explícito de IA como materializador
+En este proyecto, la Inteligencia Artificial (Gemini) se utilizó como un asistente de materialización técnica, manteniendo una clara distinción entre la autoría conceptual y el soporte de código:
+* **Mi autoría (Decisiones conceptuales y de diseño):** Fui el director creativo del proyecto. Elegí la palabra "BOMB", definí la estética brutalista y diseñé el flujo narrativo (la mecha, el latido de la "O", el desorden post-explosión y las manchas permanentes). También tomé las decisiones sobre cómo debía ser la coreografía de interacción para la presentación final.
+* **Soporte IA (Resolución de sintaxis y matemática):** La IA se encargó de traducir mis ideas artísticas al lenguaje de programación de `p5.js` y `Matter.js`. Me asistió escribiendo los algoritmos para los *Constraints* elásticos, optimizando el rendimiento usando *p5.Graphics* para los residuos fijos, configurando la función `windowResized()` para evitar la desalineación geométrica, y calibrando los multiplicadores de fuerza física para lograr el impacto visual que yo deseaba.
 ## Bitácora de reflexión
