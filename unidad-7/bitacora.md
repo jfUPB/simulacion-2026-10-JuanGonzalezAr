@@ -334,4 +334,7 @@ La obra fue diseñada como un instrumento audiovisual de ejecución en vivo.
 En este proyecto, la Inteligencia Artificial (Gemini) se utilizó como un asistente de materialización técnica, manteniendo una clara distinción entre la autoría conceptual y el soporte de código:
 * **Mi autoría (Decisiones conceptuales y de diseño):** Fui el director creativo del proyecto. Elegí la palabra "BOMB", definí la estética brutalista y diseñé el flujo narrativo (la mecha, el latido de la "O", el desorden post-explosión y las manchas permanentes). También tomé las decisiones sobre cómo debía ser la coreografía de interacción para la presentación final.
 * **Soporte IA (Resolución de sintaxis y matemática):** La IA se encargó de traducir mis ideas artísticas al lenguaje de programación de `p5.js` y `Matter.js`. Me asistió escribiendo los algoritmos para los *Constraints* elásticos, optimizando el rendimiento usando *p5.Graphics* para los residuos fijos, configurando la función `windowResized()` para evitar la desalineación geométrica, y calibrando los multiplicadores de fuerza física para lograr el impacto visual que yo deseaba.
+
+## 12. Codigo fuente y enlace al sketch
+- [Sketch](https://editor.p5js.org/JuanGonzalezAr/sketches/bCZoMl5FP)
 ## Bitácora de reflexión
