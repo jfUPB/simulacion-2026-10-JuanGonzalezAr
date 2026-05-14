@@ -4,177 +4,165 @@
 
 
 ## Bitácora de aplicación 
-# Proyecto Final — Resonance
+# Resonance — Bitácora Proyecto Final
 
-## Herramienta elegida con justificación
+---
 
-La herramienta elegida para el desarrollo del proyecto fue **Three.js**, una librería de JavaScript enfocada en gráficos 3D en tiempo real para web.
+# Herramienta elegida
 
-Se eligió esta herramienta porque permite combinar programación creativa, visuales generativos, interacción y audio reactivo dentro de un entorno accesible desde navegador. Además, se relaciona directamente con mis intereses profesionales en experiencias visuales inmersivas, visuales para eventos y piezas digitales interactivas.
+## Three.js
 
-Three.js permitió trasladar conceptos trabajados previamente en p5.js hacia un entorno tridimensional más cercano a proyectos reales de visuales para conciertos, instalaciones y performances audiovisuales.
+La herramienta elegida para el desarrollo del proyecto fue **Three.js**, una librería de JavaScript orientada a gráficos 3D en tiempo real para web.
+
+Se escogió porque permite trabajar:
+- sistemas visuales complejos,
+- espacio tridimensional,
+- partículas masivas,
+- postprocesado,
+- interacción audiovisual,
+- y experiencias inmersivas.
+
+Además, se relaciona directamente con mis intereses en:
+- visuales para música,
+- experiencias digitales,
+- instalaciones audiovisuales,
+- y diseño interactivo.
+
+Three.js permitió trasladar principios trabajados previamente en p5.js hacia un entorno más cercano a producciones visuales profesionales.
 
 ---
 
 # Sistema transferido
 
-El sistema principal transferido desde p5.js fue el de:
+Los sistemas transferidos desde p5.js fueron:
 
 - Sistemas de partículas
-- Oscilación
 - Motion 101
-- Audio reactividad
+- Oscilación
+- Fuerzas
+- Aleatoriedad
 - Flow fields
+- Audio reactividad
 
-El proyecto toma estos principios y los reconstruye en Three.js mediante un sistema de partículas tridimensionales que responde directamente a diferentes frecuencias de una canción.
+La pieza utiliza un sistema de partículas 3D que modifica:
+- posición,
+- escala,
+- vibración,
+- color,
+- rotación,
+- brillo,
+- y deformación
 
-Las partículas modifican:
-- posición
-- escala
-- color
-- brillo
-- movimiento
-- expansión
-
-dependiendo de bajos, medios y altos de la música.
+dependiendo de las frecuencias de una canción.
 
 ---
 
 # Contexto profesional concreto
 
-El proyecto fue pensado como un:
+## Visual para banda o evento musical
 
-## Visual en tiempo real para una banda o evento de música electrónica.
+El proyecto fue desarrollado como una pieza visual generativa pensada para:
+- conciertos,
+- festivales,
+- performances audiovisuales,
+- o experiencias inmersivas.
 
-La pieza funciona como una visual generativa proyectada durante una presentación musical, reaccionando dinámicamente al sonido y creando una atmósfera inmersiva sincronizada con la canción.
+La visual funciona en tiempo real reaccionando a la música y transformando el sonido en comportamiento visual.
 
-También podría funcionar como:
-- visual para festival
-- instalación audiovisual
-- pieza de portafolio
-- apertura de evento cultural
+También puede funcionar como:
+- pieza de portafolio,
+- visual para instalación,
+- o contenido audiovisual para marca cultural.
 
 ---
 
 # Concepto visual
 
-## “Resonance”
+## Resonance
 
-El concepto de la pieza consiste en representar visualmente la energía invisible del sonido mediante una entidad abstracta de partículas que “respira” con la música.
+El concepto del proyecto consiste en representar la energía invisible del sonido mediante un organismo abstracto de partículas que “respira” y se transforma con la música.
 
 La visual busca transmitir:
-- expansión
-- vibración
-- inmersión
-- fluidez
-- energía digital
+- inmersión,
+- vibración,
+- energía,
+- expansión,
+- fluidez,
+- y comportamiento orgánico.
 
-La nube de partículas se transforma constantemente dependiendo de las frecuencias del audio, haciendo visible la estructura emocional y rítmica de la canción.
-
-La intención estética fue acercarse a visuales minimalistas utilizados en conciertos y experiencias inmersivas contemporáneas.
-
----
-
-# Explicación de transferencia
-
-En p5.js los sistemas vistos durante el curso trabajaban principalmente en dos dimensiones y con estructuras más simples de movimiento.
-
-La transferencia hacia Three.js implicó:
-- convertir partículas 2D en partículas 3D
-- usar BufferGeometry para manejar miles de partículas
-- utilizar shaders y postprocesado visual
-- incorporar análisis de audio en tiempo real mediante Web Audio API
-- traducir principios de oscilación y fuerzas a un espacio tridimensional
-
-El sistema conserva los principios originales:
-- movimiento procedural
-- comportamiento emergente
-- deformación basada en fuerzas
-- relaciones entre variables dinámicas
-
-pero adaptados a un entorno más cercano a visuales profesionales en tiempo real.
+Cada frecuencia musical altera el comportamiento del sistema visual generando una experiencia dinámica y viva.
 
 ---
 
-# Pieza final resuelta
+# Referencias
 
-La pieza final consiste en una visual tridimensional audio reactiva desarrollada en pantalla completa.
+## Referencias visuales
 
-Características principales:
-- sistema de aproximadamente 9000 partículas
-- reacción a bajos, medios y altos
-- bloom dinámico
-- cambios de color en tiempo real
-- expansión y contracción con la música
-- deformaciones orgánicas
-- ambiente inmersivo con niebla y profundidad
-
-La pieza fue diseñada para ejecutarse en tiempo real sincronizada con la canción *Innerbloom*.
-
----
-
----
-
-# Estrategia de presentación coherente con la herramienta
-
-La pieza será presentada como:
-
-
-## Ejecución audiovisual en vivo desde navegador.
-
-La presentación incluye:
-- reproducción musical sincronizada
-- visual generativa en tiempo real
-- interacción mínima del usuario
-- experiencia inmersiva proyectada a pantalla completa
-
-Esto aprovecha la naturaleza en tiempo real de Three.js y la Web Audio API.
-
----
-
-# Moodboard o referencias
-
-Referencias visuales y técnicas:
-
-- Visuales de Afterlife
+- Afterlife visuals
 - Anyma
-- RÜFÜS DU SOL
-- Visuales generativos tipo TouchDesigner
-- Instalaciones inmersivas
+- TouchDesigner generative visuals
 - Arte generativo abstracto
+- Instalaciones inmersivas
+- Visuales de música electrónica
 - Sistemas cósmicos y partículas
-- Estética futurista minimalista
 
-Referencias cromáticas:
-- azul eléctrico
+## Referencias estéticas
+
+- futurismo
+- minimalismo
+- neón
 - cyan
-- violeta
-- blanco brillante
+- azul eléctrico
 - negro profundo
+- bloom cinematográfico
 
 ---
 
 # Bocetos
 
-## Boceto inicial
+## Boceto 1
 
-Una esfera de partículas suspendidas en el espacio reaccionando levemente a la música.
+Sistema simple de partículas suspendidas en un espacio oscuro reaccionando levemente al sonido.
 
-## Boceto intermedio
+## Boceto 2
 
 Se añadieron:
-- expansión con bajos
-- oscilaciones con medios
-- vibraciones con altos
+- oscilaciones,
+- expansión con bajos,
+- vibración con altos,
+- y deformaciones más orgánicas.
 
 ## Boceto final
 
-Visual inmersiva tridimensional con:
-- profundidad
-- bloom
-- deformaciones dinámicas
-- movimiento orgánico
-- sincronización clara con la canción
+Visual tridimensional inmersiva con:
+- aproximadamente 9000 partículas,
+- bloom dinámico,
+- audio reactividad completa,
+- profundidad,
+- niebla,
+- y sincronización visual clara con la música.
+
+---
+
+# Explicación de la transferencia
+
+El proyecto toma sistemas vistos originalmente en p5.js y los reconstruye en Three.js.
+
+La transferencia implicó:
+- pasar de 2D a 3D,
+- trabajar con BufferGeometry,
+- utilizar Web Audio API,
+- implementar partículas masivas en GPU,
+- y adaptar principios de movimiento procedural a un espacio tridimensional.
+
+La lógica conceptual se mantiene:
+- fuerzas,
+- oscilación,
+- movimiento emergente,
+- comportamiento colectivo,
+- y relaciones dinámicas entre variables.
+
+La diferencia principal es que Three.js permitió ampliar la experiencia hacia una estética más inmersiva y cercana a visuales profesionales en tiempo real.
 
 ---
 
@@ -183,13 +171,14 @@ Visual inmersiva tridimensional con:
 | Elemento | Decisión |
 |---|---|
 | Herramienta | Three.js |
-| Sistema transferido | Partículas + oscilación + flow fields |
+| Sistema principal | Partículas audio reactivas |
 | Contexto | Visual para evento musical |
 | Estética | Futurista e inmersiva |
 | Audio | Web Audio API |
-| Color | Reacción por frecuencias |
-| Movimiento | Basado únicamente en audio |
+| Movimiento | Basado completamente en música |
+| Color | Reactivo a frecuencias |
 | Presentación | Pantalla completa |
+| Interacción | Música controla el sistema |
 
 ---
 
@@ -197,42 +186,47 @@ Visual inmersiva tridimensional con:
 
 ## Espacio
 
-Pantalla o proyección de gran formato.
+Pantalla completa o proyección de gran formato.
 
-## Audio
+## Sonido
 
-Canción reproducida desde computador conectado al sistema visual.
+Canción reproducida en sincronía con la visual.
 
-## Interacción
+## Experiencia
 
-La música controla completamente el comportamiento visual.
+El espectador observa cómo el sistema visual responde completamente al comportamiento del sonido.
 
-## Experiencia esperada
+## Forma de presentación
 
-El espectador percibe que las partículas “viven” y responden orgánicamente a la canción.
+- ejecución en tiempo real,
+- experiencia inmersiva,
+- visual generativa proyectada,
+- ambiente oscuro.
 
 ---
 
-# Uso explícito de IA como materializador
+# Evidencia del uso de IA
 
-La IA fue utilizada principalmente como apoyo técnico para:
-- depuración de código
-- optimización de partículas
-- implementación de audio reactividad
-- solución de errores de Three.js
-- estructuración del sistema visual
+La IA fue utilizada principalmente como herramienta de apoyo técnico para:
+- depuración de errores,
+- optimización del sistema de partículas,
+- implementación de audio reactividad,
+- estructuración del código,
+- y solución de problemas técnicos de Three.js.
 
 Las decisiones conceptuales y creativas fueron tomadas por mí:
-- concepto visual
-- dirección estética
-- selección musical
-- intención de la pieza
-- comportamiento deseado del sistema
-- referencias visuales
-- contexto profesional
+- concepto visual,
+- intención de la pieza,
+- referencias estéticas,
+- comportamiento deseado,
+- selección musical,
+- contexto profesional,
+- y dirección artística.
 
-La IA funcionó como herramienta de materialización técnica y asistencia en programación, mientras que la propuesta conceptual y artística permaneció como autoría propia.
+La IA funcionó como apoyo de materialización técnica y no como autora conceptual del proyecto.
 
 ## Link al local host:
 - [Link al proyecto](http://localhost:5173/)
+## Link al drive para el proyecto
+- [Link al drive](https://drive.google.com/drive/folders/1wFIUmWy6LmAA5FTLl38yIAwtInuYXLzj)
 ## Bitácora de reflexión
