@@ -113,22 +113,12 @@ La pieza fue diseñada para ejecutarse en tiempo real sincronizada con la canci�
 
 ---
 
-# Pantalla completa o presentación limpia
-
-La visual se presenta en pantalla completa sin elementos de edición visibles.
-
-La intención fue que el resultado se percibiera como una obra terminada y no como una prueba técnica o entorno de programación.
-
-La interfaz fue eliminada para mantener:
-- inmersión
-- limpieza visual
-- enfoque en la experiencia audiovisual
-
 ---
 
 # Estrategia de presentación coherente con la herramienta
 
 La pieza será presentada como:
+
 
 ## Ejecución audiovisual en vivo desde navegador.
 
@@ -243,4 +233,6 @@ Las decisiones conceptuales y creativas fueron tomadas por mí:
 
 La IA funcionó como herramienta de materialización técnica y asistencia en programación, mientras que la propuesta conceptual y artística permaneció como autoría propia.
 
+## Link al local host:
+- [Link al proyecto](http://localhost:5173/)
 ## Bitácora de reflexión
